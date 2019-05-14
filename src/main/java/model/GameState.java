@@ -44,6 +44,8 @@ public class GameState implements Serializable
 
     public void changePlayer()
     {
+        System.out.println("NOW");
+        System.out.println(turnOfPlayer);
         if(turnOfPlayer == playerBlack)
         {
             turnOfPlayer = playerWhite;
@@ -52,6 +54,8 @@ public class GameState implements Serializable
         {
             turnOfPlayer = playerBlack;
         }
+        System.out.println("LATER");
+        System.out.println(turnOfPlayer);
     }
 
 
@@ -62,6 +66,25 @@ public class GameState implements Serializable
 
     public PlayerState currentPlayer() {
         return turnOfPlayer;
+    }
+
+    // implement it all over the code
+    public PlayerState getEnemy()
+    {
+        if(this.turnOfPlayer == playerBlack)
+        {
+            return playerWhite;
+        }
+        return playerBlack;
+    }
+
+    public PlayerState getOtherPlayer(PlayerState player)
+    {
+        if(player == playerBlack)
+        {
+            return playerWhite;
+        }
+        return playerBlack;
     }
 
     public void setTurnOfPlayer(PlayerState turnOfPlayer) {
@@ -130,7 +153,9 @@ public class GameState implements Serializable
                 "|       " + positions.get(18).getPositionColorAsString() + "(51)--------------" + positions.get(19).getPositionColorAsString() + "(53)--------------" + positions.get(20).getPositionColorAsString() + "(55)  |\n" +
                 "|                           |                           |\n" +
                 "|                           |                           |\n" +
-                positions.get(21).getPositionColorAsString() + "(60)----------------------" + positions.get(22).getPositionColorAsString() + "(63)----------------------" + positions.get(23).getPositionColorAsString() + "(66)\n";
+                positions.get(21).getPositionColorAsString() + "(60)----------------------" + positions.get(22).getPositionColorAsString() + "(63)----------------------" + positions.get(23).getPositionColorAsString() + "(66)\n"
+                + "Player WHITE   in draw" + Integer.toString(playerWhite.getPiecesInDrawer()) + " on board " + Integer.toString(playerWhite.getPiecesOnBoard()) +" pieces lost"+ Integer.toString(playerWhite.getPiecesLost())+ "\n"
+                + "Player BLACK   in draw" + Integer.toString(playerBlack.getPiecesInDrawer()) + " on board " + Integer.toString(playerBlack.getPiecesOnBoard()) +" pieces lost"+ Integer.toString(playerBlack.getPiecesLost())+"\n";
         return sb;
     }
 

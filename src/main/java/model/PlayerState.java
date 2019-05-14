@@ -11,6 +11,7 @@ public class PlayerState implements Serializable
     private Color colorOfPlayer;
     private int piecesOnBoard;
     private int piecesInDrawer;
+    private int piecesLost;
     private int score;
     private Position previousPosition;
     private PlayerType playerType;
@@ -20,6 +21,7 @@ public class PlayerState implements Serializable
         this.score = 0;
         this.piecesInDrawer = 9;
         this.piecesOnBoard = 0;
+        this.piecesLost = 0;
         this.colorOfPlayer = colorOfPlayer;
         this.playerType = playerType;
     }
@@ -50,6 +52,13 @@ public class PlayerState implements Serializable
         setPiecesOnBoard(piecesOnBoard + 1);
     }
 
+    public void getsPieceRemoved(Position position)
+    {
+        position.setPositionColor(Color.NONE);
+        setPiecesLost(piecesLost + 1);
+        setPiecesOnBoard(piecesOnBoard - 1);
+    }
+
     public int getPiecesOnBoard() {
         return piecesOnBoard;
     }
@@ -66,7 +75,13 @@ public class PlayerState implements Serializable
         this.piecesInDrawer = piecesInDrawer;
     }
 
+    public int getPiecesLost() {
+        return piecesLost;
+    }
 
+    public void setPiecesLost(int piecesLost) {
+        this.piecesLost = piecesLost;
+    }
 
     @Override
     public String toString() {

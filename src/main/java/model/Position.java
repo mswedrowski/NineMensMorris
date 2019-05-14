@@ -63,7 +63,7 @@ public class Position implements Serializable
     }
 
     //PART OF GARBAGE
-    public int getPositionAsArray(){return (Integer.parseInt(Integer.toString(x)+Integer.toString(y)));}
+    public int getPositionAsArrayInx(){return (Integer.parseInt(Integer.toString(x)+Integer.toString(y)));}
 
     public void setX(int x) {
         this.x = x;
@@ -79,6 +79,6 @@ public class Position implements Serializable
 
     @Override
     public String toString() {
-        return "Position: "+x + " " + y;
+        return "Position: "+ x + " " + y;
     }
 }

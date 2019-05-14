@@ -2,10 +2,10 @@ package AI_resources;
 import model.GameState;
 
 public class Evaluation {
-    /* Private Variable Declarations */
+
     private int evaluation = 0;
     private int positionsEvaluated = 0;
-    private GameState board;
+    private GameState gameState;
 
     public int getEvaluation() {
         return evaluation;
@@ -25,10 +25,10 @@ public class Evaluation {
 
     public GameState getGameState()
     {
-        return board;
+        return gameState;
     }
 
-    public void setNineMensMorrisBoard(GameState inputBoard) {
-        board = inputBoard;
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 }

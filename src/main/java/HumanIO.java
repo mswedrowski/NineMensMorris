@@ -48,9 +48,7 @@ public class HumanIO
        boolean isCorrectInput =false;
 
        PlayerState currentPlayer = gameState.currentPlayer();
-
        System.out.println(gameState.toString());
-
        System.out.println("Move of " + currentPlayer.toString());
 
        int requestedArrayPosition = -1;
@@ -68,9 +66,10 @@ public class HumanIO
 
                 if (positionToChange.isEmpty())
                 {
-                    currentPlayer.putPieceOnBoard(positionToChange);
+                    playerPutingPiece(gameState,requestedArrayPosition);
 
                     int numberOfMills = BoardInfo.getMills(gameState,requestedArrayPosition);
+
                     for(int i=0;i<numberOfMills;i++)
                     {
                         removePieceIO(gameState);
@@ -89,6 +88,18 @@ public class HumanIO
             }
         }
         return requestedArrayPosition;
+    }
+
+    public static void playerPutingPiece(GameState gameState,int indexOfPosition)
+    {
+        Position toPut = gameState.getPosition(indexOfPosition);
+        gameState.currentPlayer().putPieceOnBoard(toPut);
+    }
+
+    public static void playerGetsPieceRemoved(GameState gameState,int indexOfPosition)
+    {
+        Position toPut = gameState.getPosition(indexOfPosition);
+        gameState.getEnemy().getsPieceRemoved(toPut);
     }
 
 
@@ -110,8 +121,9 @@ public class HumanIO
                 int requestedField = input.nextInt();
                 requestedPositionInArray = boardPositionToArrayPosition.get(requestedField);
 
-                if (BoardInfo.canRemove(gameState, requestedPositionInArray)) {
-                    gameState.getPosition(requestedPositionInArray).setPositionColor(Color.NONE);
+                if (BoardInfo.canRemove(gameState, requestedPositionInArray))
+                {
+                    playerGetsPieceRemoved(gameState,requestedPositionInArray);
                     isCorrectInput = true;
                 }
                 else

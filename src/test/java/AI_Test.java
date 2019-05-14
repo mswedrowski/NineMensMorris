@@ -1,4 +1,5 @@
 import model.GameState;
+import model.PlayerState;
 import model.enums.Color;
 import model.enums.PlayerType;
 import org.junit.Assert;
@@ -33,6 +34,18 @@ public class AI_Test
         GameState gameStateToCopy = new GameState(PlayerType.AI,PlayerType.AI);
         GameState gameStateCopied = (GameState) AI.deepClone(gameStateToCopy);
         Assert.assertFalse(gameStateCopied == gameStateToCopy);
+    }
+
+    @Test
+    public void evaluationTest()
+    {
+        GameState gameState = new GameState(PlayerType.AI,PlayerType.AI);
+
+        gameState.getPlayerBlack().putPieceOnBoard(gameState.getPosition(2));
+
+        Assert.assertEquals(1,AI.getEvaluation(gameState,Color.BLACK));
+
+        Assert.assertEquals(-1,AI.getEvaluation(gameState,Color.WHITE));
     }
 
 

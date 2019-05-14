@@ -33,7 +33,7 @@ public class Game
 
             try
             {
-                pickedPosition = humanIO.placeNewPieceIO(gameState);
+                 humanIO.placeNewPieceIO(gameState);
 
             }
             catch (IOException e)
@@ -43,7 +43,11 @@ public class Game
         }
         else
         {
-            AI bot = new AI();
+
+            gameState = MinMax.minMaxAlgorithm(gameState,2);
+            //System.out.println(gameState);
+            System.out.println("WHY NO CHAN");
+            /*
             //Temp random
            ArrayList<Position> positions= getAllNonOccupiedPositions(gameState);
            pickedPosition = new Random().nextInt(positions.size());
@@ -53,6 +57,8 @@ public class Game
            System.out.println("AI_resources");
            System.out.println(positionToChange);
            currentPlayer.putPieceOnBoard(positionToChange);
+
+            */
         }
 
         //int numOfMills = BoardInfo.getMills(gameState,pickedPosition);
@@ -122,15 +128,21 @@ public class Game
 
     public static void main(String[] args)
     {
+
         Game game = new Game(PlayerType.AI,PlayerType.HUMAN);
 
-       /* while (game.gameState.getPhase() == Phase.PLACE_PIECES)
+        while (game.gameState.getPhase() == Phase.PLACE_PIECES)
         {
             game.preformNextMovePhasePlace(game.gameState);
             game.updatePhase(game.gameState);
         }
 
-        */
+
+
+
+
+
+       /*
        game.gameState.setPhase(Phase.MOVE_PIECES);
         while (game.gameState.getPhase() == Phase.MOVE_PIECES)
         {
@@ -139,6 +151,8 @@ public class Game
             game.preformNextMovePhaseMove(game.gameState);
 
         }
+
+        */
 
     }
 }

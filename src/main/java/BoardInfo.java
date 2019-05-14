@@ -239,8 +239,8 @@ public class BoardInfo
     public static int getPotentialMills(GameState gameState,int positionToCheck)
     {
         int counterPotentialMills = 0;
-
         ArrayList<Integer> horizontalMill = getHorizontalMill(positionToCheck);
+
         horizontalMill.remove( new Integer(positionToCheck));
 
         if(checkPotentialMillOnPositions(gameState,horizontalMill))
@@ -284,5 +284,6 @@ public class BoardInfo
 
         return false;
     }
+
 
 }

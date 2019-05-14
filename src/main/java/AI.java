@@ -1,6 +1,8 @@
 import model.GameState;
+import model.PlayerState;
 import model.Position;
 import model.enums.Color;
+import model.enums.Phase;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -63,12 +65,27 @@ public class AI
         return 0 < BoardInfo.getPotentialMills(gameState,potentialPosition);
     }
 
-    public ArrayList<Position> getAllNonOccupiedPositions(GameState gameState)
+    public static ArrayList<Position> getAllNonOccupiedPositions(GameState gameState)
     {
         return (ArrayList<Position>) gameState.getAllPositions().stream().filter(Position::isEmpty).collect(Collectors.toList());
     }
 
-    public ArrayList<GameState> addPiece(GameState gameState)
+
+    public static void playerPutingPiece(GameState gameState,int indexOfPosition)
+    {
+        Position toPut = gameState.getPosition(indexOfPosition);
+        gameState.currentPlayer().putPieceOnBoard(toPut);
+    }
+
+    public static void playerGetsPieceRemoved(GameState gameState,int indexOfPosition)
+    {
+        Position toPut = gameState.getPosition(indexOfPosition);
+        gameState.getEnemy().getsPieceRemoved(toPut);
+    }
+
+
+
+    public static ArrayList<GameState> addPiece(GameState gameState)
     {
         ArrayList<GameState> possibleMoves = new ArrayList<>();
         ArrayList<Position> positions = getAllNonOccupiedPositions(gameState);
@@ -77,9 +94,9 @@ public class AI
         {
             GameState newPossibleMove = (GameState) AI.deepClone(gameState);
 
-            // TO REFACTOR
-            newPossibleMove.getPosition(i).setPositionColor(gameState.currentPlayer().getColorOfPlayer());
-            int numberOfMills = BoardInfo.getPotentialMills(gameState,positions.get(i).getPositionAsArray());
+            playerPutingPiece(newPossibleMove,i);
+
+            int numberOfMills = BoardInfo.getPotentialMills(gameState,i);
 
             if(numberOfMills > 0)
             {
@@ -87,6 +104,7 @@ public class AI
             }
             else
             {
+                newPossibleMove.changePlayer();
                 possibleMoves.add(newPossibleMove);
             }
         }
@@ -151,7 +169,7 @@ public class AI
 
                 for(Position position : positionsToMove)
                 {
-                    int moveToIndex = position.getPositionAsArray();
+                    int moveToIndex = position.getPositionAsArrayInx();
 
                     GameState possibleMove = (GameState) AI.deepClone(gameState);
                     possibleMove.getPosition(moveFromIndex).setPositionColor(Color.NONE);
@@ -177,7 +195,7 @@ public class AI
 
 
 
-    public ArrayList<GameState> removePiece(GameState newGameState,ArrayList<GameState> possibleMoves)
+    public static ArrayList<GameState> removePiece(GameState newGameState,ArrayList<GameState> possibleMoves)
     {
         for(int i = 0; i< newGameState.getAllPositions().size(); i++)
         {
@@ -187,6 +205,8 @@ public class AI
                 {
                     GameState possibleRemovalState = (GameState) AI.deepClone(newGameState);
                     possibleRemovalState.getPosition(i).setPositionColor(Color.NONE);
+
+                    possibleRemovalState.changePlayer();
                     possibleMoves.add(possibleRemovalState);
                 }
             }
@@ -194,10 +214,54 @@ public class AI
         return possibleMoves;
     }
 
-    public ArrayList<GameState> placeNewPieceAI(GameState gamestate)
+    public static ArrayList<GameState> placeNewPieceAI(GameState gamestate)
     {
         return addPiece(gamestate);
     }
+
+
+
+
+    public static int getEvaluation(GameState gameState, Color colorToEvaluate)
+    {
+        PlayerState currentPlayer = null;
+
+        if(colorToEvaluate == Color.WHITE)
+        {
+            currentPlayer = gameState.getPlayerWhite();
+        }
+
+        else
+        {
+            currentPlayer = gameState.getPlayerBlack();
+        }
+
+
+        int currentPlayerPieces = currentPlayer.getPiecesOnBoard();
+        int enemyPieces = gameState.getOtherPlayer(currentPlayer).getPiecesOnBoard();
+
+        int evaluationValue = currentPlayerPieces - enemyPieces;
+
+        if( gameState.getPhase() != Phase.PLACE_PIECES)
+        {
+            if(enemyPieces <= 2){
+                evaluationValue = 100000;
+            }
+            /*
+            else if (movablePiecesBlack == 0){
+                evaluationValue = 100000;
+            }
+
+            */
+            else if(currentPlayerPieces <= 2)
+            {
+                evaluationValue = -100000;
+            }
+        }
+        return evaluationValue;
+    }
+
+
 }
 
 
