@@ -1,11 +1,55 @@
 // Just hardcoding cuz I got no time
 
 import model.GameState;
+import model.PlayerState;
 import model.enums.Color;
+import model.enums.Phase;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BoardInfo
 {
+    public static ArrayList<Integer> getNeighboursOfPosition(int requestedPosition)
+    {
+        ArrayList<Integer> neighbors = new ArrayList<Integer>();
+
+        switch(requestedPosition)
+        {
+            case 0  : neighbors.addAll(Arrays.asList(1, 3)); break;
+            case 1  : neighbors.addAll(Arrays.asList(0, 2, 9)); break;
+            case 2  : neighbors.addAll(Arrays.asList(1, 4)); break;
+            case 3  : neighbors.addAll(Arrays.asList(0, 5, 11)); break;
+            case 4  : neighbors.addAll(Arrays.asList(2, 7, 12)); break;
+            case 5  : neighbors.addAll(Arrays.asList(3, 6)); break;
+            case 6  : neighbors.addAll(Arrays.asList(5, 7, 14)); break;
+            case 7  : neighbors.addAll(Arrays.asList(4, 6)); break;
+            case 8  : neighbors.addAll(Arrays.asList(9, 11));break;
+            case 9  : neighbors.addAll(Arrays.asList(1, 8, 10, 17)); break;
+            case 10 : neighbors.addAll(Arrays.asList(9, 12)); break;
+            case 11 : neighbors.addAll(Arrays.asList(3, 8, 13, 19)); break;
+            case 12 : neighbors.addAll(Arrays.asList(4, 10, 15, 20)); break;
+            case 13 : neighbors.addAll(Arrays.asList(11, 14)); break;
+            case 14 : neighbors.addAll(Arrays.asList(6, 13, 15, 22)); break;
+            case 15 : neighbors.addAll(Arrays.asList(12, 14)); break;
+            case 16 : neighbors.addAll(Arrays.asList(17, 19)); break;
+            case 17 : neighbors.addAll(Arrays.asList(9, 16, 18)); break;
+            case 18 : neighbors.addAll(Arrays.asList(17, 20)); break;
+            case 19 : neighbors.addAll(Arrays.asList(11, 16, 21)); break;
+            case 20 : neighbors.addAll(Arrays.asList(12, 18, 23)); break;
+            case 21 : neighbors.addAll(Arrays.asList(19, 22)); break;
+            case 22 : neighbors.addAll(Arrays.asList(21, 23, 14)); break;
+            case 23 : neighbors.addAll(Arrays.asList(20, 22)); break;
+            default : break;
+        }
+        return neighbors;
+    }
+
+
+    public static boolean isNeighbour(int positionToCheck,int neighborPosition)
+    {
+        return getNeighboursOfPosition(positionToCheck).contains(neighborPosition);
+    }
 
 
     public static ArrayList<Integer> getVerticalMill(int position)
@@ -59,7 +103,7 @@ public class BoardInfo
 
 
     // TODO : Change to modulo version
-    public static ArrayList<Integer> getHorizonalMill(int position)
+    public static ArrayList<Integer> getHorizontalMill(int position)
     {
         ArrayList<Integer> horizontalMill = new ArrayList<>();
 
@@ -136,7 +180,25 @@ public class BoardInfo
 
     public static boolean checkMillOnPositions(GameState gameState, ArrayList<Integer> positions)
     {
+        Color expectedColor = gameState.currentPlayer().getColorOfPlayer();
 
+        if(expectedColor == Color.NONE)
+        {
+            return false;
+        }
+
+        for (Integer indexOfPosition: positions)
+        {
+            if(gameState.getAllPositions().get(indexOfPosition).getPositionColor() != expectedColor)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean checkPotentialMillOnPositions(GameState gameState, ArrayList<Integer> positions)
+    {
         Color expectedColor = gameState.getPosition(positions.get(0)).getPositionColor();
 
         if(expectedColor == Color.NONE)
@@ -146,7 +208,7 @@ public class BoardInfo
 
         for (Integer indexOfPosition: positions)
         {
-            if(gameState.getPositions().get(indexOfPosition).getPositionColor() != expectedColor)
+            if(gameState.getAllPositions().get(indexOfPosition).getPositionColor() != expectedColor)
             {
                 return false;
             }
@@ -161,7 +223,7 @@ public class BoardInfo
     {
         int countedMills = 0;
 
-        if(checkMillOnPositions(gameState,getHorizonalMill(positionToCheck)))
+        if(checkMillOnPositions(gameState, getHorizontalMill(positionToCheck)))
         {
             countedMills++;
         }
@@ -170,8 +232,57 @@ public class BoardInfo
         {
             countedMills++;
         }
-
         return countedMills;
+    }
+
+
+    public static int getPotentialMills(GameState gameState,int positionToCheck)
+    {
+        int counterPotentialMills = 0;
+
+        ArrayList<Integer> horizontalMill = getHorizontalMill(positionToCheck);
+        horizontalMill.remove( new Integer(positionToCheck));
+
+        if(checkPotentialMillOnPositions(gameState,horizontalMill))
+        {
+            counterPotentialMills++;
+        }
+
+        ArrayList<Integer> verticalMill = getVerticalMill(positionToCheck);
+        verticalMill.remove( new Integer(positionToCheck));
+
+        if(checkPotentialMillOnPositions(gameState,verticalMill))
+        {
+            counterPotentialMills++;
+        }
+
+        return counterPotentialMills;
+    }
+
+    // move it to gamestate
+    public static Color colorOfEnemy(PlayerState playerState)
+    {
+        if(playerState.getColorOfPlayer() == Color.BLACK)
+        {
+            return Color.WHITE;
+        }
+
+        return Color.BLACK;
+    }
+
+    public static boolean canRemove(GameState gameState,int requestedPositionInArray)
+    {
+        PlayerState playerWhoIsRemoving = gameState.currentPlayer();
+        if(gameState.getPosition(requestedPositionInArray).getPositionColor() == BoardInfo.colorOfEnemy(playerWhoIsRemoving))
+        {
+            if(getMills(gameState,requestedPositionInArray) == 0 ||
+                    playerWhoIsRemoving.getPiecesOnBoard() == 3 && gameState.getPhase() == Phase.MOVE_PIECES)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

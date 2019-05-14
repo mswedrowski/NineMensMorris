@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a232ec7-28f8-438b-a321-58265330fbdd" name="Default Changelist" comment="" />
+    <list default="true" id="0a232ec7-28f8-438b-a321-58265330fbdd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HumanIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HumanIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PlayerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/PlayerState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/Phase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -26,17 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Position.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BoardInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+            <state relative-caret-position="269">
+              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,28 +47,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/BoardInfoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Color.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/model/GameStateTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BoardInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
+            <state relative-caret-position="162">
+              <caret line="272" column="29" selection-start-line="272" selection-start-column="29" selection-end-line="272" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="196" column="47" selection-start-line="196" selection-start-column="32" selection-end-line="196" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7556#7557#0" expanded="true" />
+                <element signature="e#7578#7579#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/AI_Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,20 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HumanIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+            <state relative-caret-position="222">
+              <caret line="47" column="11" lean-forward="true" selection-start-line="47" selection-start-column="11" selection-end-line="54" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,8 +108,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Phase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state relative-caret-position="102">
+              <caret line="6" column="34" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HumanIO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2148">
+              <caret line="173" column="33" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-17">
+              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,12 +141,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
+            <state relative-caret-position="218">
+              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2118#2119#0" expanded="true" />
-                <element signature="e#2149#2150#0" expanded="true" />
+                <element signature="e#1479#1480#0" expanded="true" />
+                <element signature="e#1558#1559#0" expanded="true" />
+                <element signature="e#1667#1668#0" expanded="true" />
+                <element signature="e#2052#2053#0" expanded="true" />
+                <element signature="e#2161#2162#0" expanded="true" />
+                <element signature="e#2259#2260#0" expanded="true" />
+                <element signature="e#2322#2323#0" expanded="true" />
+                <element signature="e#2401#2402#0" expanded="true" />
+                <element signature="e#5271#5272#0" expanded="true" />
+                <element signature="e#5376#5377#0" expanded="true" />
+                <element signature="e#5453#5454#0" expanded="true" />
+                <element signature="e#5558#5559#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,6 +187,16 @@
       <find>verticalMill</find>
       <find>checkMill</find>
       <find>preformNextMovePhasePlace</find>
+      <find>boardPositionToArrayPosition</find>
+      <find>preformNextMovePhaseMove</find>
+      <find>getmi</find>
+      <find>getAllNonOccupiedPositions</find>
+      <find>checkMillOnPositions</find>
+      <find>canRe</find>
+      <find>remove</find>
+      <find>enem</find>
+      <find>current</find>
+      <find>canmove</find>
     </findStrings>
     <replaceStrings>
       <replace>positions.get(5).getPositionColorAsString()</replace>
@@ -153,6 +204,9 @@
       <replace>gameState</replace>
       <replace>horizontalMill</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -163,28 +217,34 @@
         <option value="$PROJECT_DIR$/src/main/java/model/IPlayerState.java" />
         <option value="$PROJECT_DIR$/src/test/java/GameState.java" />
         <option value="$PROJECT_DIR$/src/test/java/model/GameState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/enums/Phase.java" />
         <option value="$PROJECT_DIR$/src/test/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/enums/Color.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Position.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/enums/PlayerType.java" />
         <option value="$PROJECT_DIR$/src/test/java/model/GameStateTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/HumanInput.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/PlayerState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/GameState.java" />
         <option value="$PROJECT_DIR$/src/test/java/GameTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/BoardInfoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AI/AI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/PlayerState.java" />
+        <option value="$PROJECT_DIR$/src/test/java/model/PositionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Position.java" />
+        <option value="$PROJECT_DIR$/src/test/java/AI_Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/GameState.java" />
         <option value="$PROJECT_DIR$/src/main/java/BoardInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/HumanIO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/enums/Phase.java" />
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1548" />
-    <option name="height" value="832" />
+    <option name="x" value="240" />
+    <option name="y" value="126" />
+    <option name="width" value="1440" />
+    <option name="height" value="775" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -227,6 +287,15 @@
               <item name="nine_mens_morris" type="b2602c69:ProjectViewProjectNode" />
               <item name="nine_mens_morris" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="enums" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nine_mens_morris" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nine_mens_morris" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -245,6 +314,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -272,27 +342,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BoardInfo">
-    <configuration name="BoardInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BoardInfo" />
-      <module name="nine_mens_morris.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Game" />
-      <module name="nine_mens_morris.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameStateTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.PositionTest">
+    <configuration name="AI_Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;model.GameStateTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;AI_Test&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -307,12 +363,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GameTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AI_Test.deepCloneReferenceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;GameTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;AI_Test.deepCloneReferenceTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -327,12 +383,52 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GameTest.getAllNonOccupiedPositionsModifyTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AI_Test.deepCloneTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;GameTest.getAllNonOccupiedPositionsModifyTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;AI_Test.deepCloneTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AI_Test.testCanFormMill" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;AI_Test.testCanFormMill&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PositionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;model.PositionTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -349,11 +445,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BoardInfo" />
-        <item itemvalue="Gradle.GameTest.getAllNonOccupiedPositionsModifyTest" />
-        <item itemvalue="Application.Game" />
-        <item itemvalue="Gradle.GameTest" />
-        <item itemvalue="Gradle.GameStateTest" />
+        <item itemvalue="Gradle.PositionTest" />
+        <item itemvalue="Gradle.AI_Test" />
+        <item itemvalue="Gradle.AI_Test.deepCloneReferenceTest" />
+        <item itemvalue="Gradle.AI_Test.deepCloneTest" />
+        <item itemvalue="Gradle.AI_Test.testCanFormMill" />
       </list>
     </recent_temporary>
   </component>
@@ -368,54 +464,55 @@
       <option name="presentableId" value="Default" />
       <updated>1557183036524</updated>
       <workItem from="1557183039541" duration="38985000" />
-      <workItem from="1557651579425" duration="4689000" />
+      <workItem from="1557651579425" duration="42654000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GameStateTest - 2019.05.08 at 01h 25m 49s.xml">
-      <configuration name="GameStateTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test_testCanFormMill - 2019.05.14 at 11h 31m 50s.xml">
+      <configuration name="AI_Test.testCanFormMill" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest - 2019.05.08 at 02h 40m 23s.xml">
-      <configuration name="GameTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test_deepCloneTest - 2019.05.14 at 12h 15m 25s.xml">
+      <configuration name="AI_Test.deepCloneTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest - 2019.05.08 at 02h 40m 29s.xml">
-      <configuration name="GameTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test_deepCloneTest - 2019.05.14 at 12h 16m 20s.xml">
+      <configuration name="AI_Test.deepCloneTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest_getAllNonOccupiedPositionsModifyTest - 2019.05.08 at 02h 41m 26s.xml">
-      <configuration name="GameTest.getAllNonOccupiedPositionsModifyTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test_deepCloneTest - 2019.05.14 at 12h 17m 23s.xml">
+      <configuration name="AI_Test.deepCloneTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest - 2019.05.08 at 02h 41m 35s.xml">
-      <configuration name="GameTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test - 2019.05.14 at 12h 19m 48s.xml">
+      <configuration name="AI_Test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest - 2019.05.08 at 02h 41m 53s.xml">
-      <configuration name="GameTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test - 2019.05.14 at 12h 20m 41s.xml">
+      <configuration name="AI_Test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest - 2019.05.08 at 02h 42m 35s.xml">
-      <configuration name="GameTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test_deepCloneReferenceTest - 2019.05.14 at 12h 22m 10s.xml">
+      <configuration name="AI_Test.deepCloneReferenceTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest_getAllNonOccupiedPositionsModifyTest - 2019.05.08 at 02h 43m 09s.xml">
-      <configuration name="GameTest.getAllNonOccupiedPositionsModifyTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="AI_Test - 2019.05.14 at 12h 22m 46s.xml">
+      <configuration name="AI_Test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest_getAllNonOccupiedPositionsModifyTest - 2019.05.08 at 02h 44m 34s.xml">
-      <configuration name="GameTest.getAllNonOccupiedPositionsModifyTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="PositionTest - 2019.05.14 at 12h 33m 36s.xml">
+      <configuration name="PositionTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="GameTest_getAllNonOccupiedPositionsModifyTest - 2019.05.08 at 14h 44m 04s.xml">
-      <configuration name="GameTest.getAllNonOccupiedPositionsModifyTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="PositionTest - 2019.05.14 at 12h 33m 48s.xml">
+      <configuration name="PositionTest" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43674000" />
+    <option name="totallyTimeSpent" value="81639000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25302014" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.25302014" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
@@ -424,8 +521,8 @@
       <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Build" order="5" weight="0.3295129" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.4305949" />
+      <window_info anchor="bottom" id="Find" order="7" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.4305949" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -455,55 +552,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/model/GameStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="187">
           <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Phase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2118#2119#0" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -515,20 +569,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BoardInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/GameTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+        <state relative-caret-position="252">
+          <caret line="30" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/GameTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/PositionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        <state relative-caret-position="235">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1667#1668#0" expanded="true" />
+            <element signature="e#2052#2053#0" expanded="true" />
+            <element signature="e#2161#2162#0" expanded="true" />
+            <element signature="e#2259#2260#0" expanded="true" />
+            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="e#2401#2402#0" expanded="true" />
+            <element signature="e#5271#5272#0" expanded="true" />
+            <element signature="e#5376#5377#0" expanded="true" />
+            <element signature="e#5453#5454#0" expanded="true" />
+            <element signature="e#5558#5559#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BoardInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="272" column="29" selection-start-line="272" selection-start-column="29" selection-end-line="272" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/AI_Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -537,18 +660,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HumanIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+        <state relative-caret-position="2148">
+          <caret line="173" column="33" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="196" column="47" selection-start-line="196" selection-start-column="32" selection-end-line="196" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7556#7557#0" expanded="true" />
+            <element signature="e#7578#7579#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Phase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        <state relative-caret-position="222">
+          <caret line="47" column="11" lean-forward="true" selection-start-line="47" selection-start-column="11" selection-end-line="54" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

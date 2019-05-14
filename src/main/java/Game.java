@@ -2,6 +2,7 @@ import model.GameState;
 import model.PlayerState;
 import model.Position;
 
+import model.enums.Color;
 import model.enums.Phase;
 import model.enums.PlayerType;
 
@@ -22,42 +23,79 @@ public class Game
 
     public void preformNextMovePhasePlace(GameState gameState)
     {
-        PlayerState currentPlayer = gameState.getTurnOfPlayer();
+        PlayerState currentPlayer = gameState.currentPlayer();
 
         int pickedPosition = -1;
+
         if(currentPlayer.getPlayerType() == PlayerType.HUMAN)
         {
             HumanIO humanIO = new HumanIO();
 
             try
             {
-                pickedPosition = humanIO.placeNewPiece(gameState);
+                pickedPosition = humanIO.placeNewPieceIO(gameState);
 
-            } catch (IOException e)
+            }
+            catch (IOException e)
             {
                 e.printStackTrace();
             }
         }
         else
         {
+            AI bot = new AI();
             //Temp random
            ArrayList<Position> positions= getAllNonOccupiedPositions(gameState);
            pickedPosition = new Random().nextInt(positions.size());
+           System.out.println(pickedPosition);
 
            Position positionToChange = positions.get(pickedPosition);
-
+           System.out.println("AI_resources");
+           System.out.println(positionToChange);
            currentPlayer.putPieceOnBoard(positionToChange);
         }
 
-        int numOfMills = BoardInfo.getMills(gameState,pickedPosition);
+        //int numOfMills = BoardInfo.getMills(gameState,pickedPosition);
 
         gameState.changePlayer();
-
     }
+
+
+    public void preformNextMovePhaseMove(GameState gameState)
+    {
+        PlayerState currentPlayer = gameState.currentPlayer();
+
+        if(currentPlayer.getPlayerType() == PlayerType.HUMAN)
+        {
+            HumanIO humanIO = new HumanIO();
+
+            try
+            {
+                humanIO.movePieceIO(gameState,currentPlayer);
+
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            //Temp Currently not working
+            System.out.println("Not moving");
+        }
+
+        //int numOfMills = BoardInfo.getMills(gameState,pickedPosition);
+
+        gameState.changePlayer();
+    }
+
+
+
 
     public ArrayList<Position> getAllNonOccupiedPositions(GameState gameState)
     {
-        return (ArrayList<Position>) gameState.getPositions().stream().filter(Position::isEmpty).collect(Collectors.toList());
+        return (ArrayList<Position>) gameState.getAllPositions().stream().filter(Position::isEmpty).collect(Collectors.toList());
     }
 
     public void updatePhase(GameState gameState)
@@ -74,16 +112,32 @@ public class Game
         }
     }
 
+    public void isEndOfGame()
+    {
+        if(gameState.getPlayerWhite().getPiecesOnBoard() < 3 || gameState.getPlayerBlack().getPiecesOnBoard() < 3)
+        {
+        gameState.setPhase(Phase.END_OF_GAME);
+        }
+    }
+
     public static void main(String[] args)
     {
         Game game = new Game(PlayerType.AI,PlayerType.HUMAN);
 
-        System.out.println(game.gameState.getPositions().get(11));
-
-        while (game.gameState.getPhase() == Phase.PLACE_PIECES)
+       /* while (game.gameState.getPhase() == Phase.PLACE_PIECES)
         {
             game.preformNextMovePhasePlace(game.gameState);
             game.updatePhase(game.gameState);
+        }
+
+        */
+       game.gameState.setPhase(Phase.MOVE_PIECES);
+        while (game.gameState.getPhase() == Phase.MOVE_PIECES)
+        {
+            game.gameState.getPosition(3).setPositionColor(Color.WHITE);
+            game.gameState.getPosition(4).setPositionColor(Color.BLACK);
+            game.preformNextMovePhaseMove(game.gameState);
+
         }
 
     }

@@ -2,7 +2,9 @@ package model;
 
 import model.enums.Color;
 
-public class Position
+import java.io.Serializable;
+
+public class Position implements Serializable
 {
     private int x;
     private int y;
@@ -41,6 +43,17 @@ public class Position
         }
     }
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj instanceof Position)
+        {
+            Position posCP  = (Position) obj;
+            return posCP.getX() == this.getX() && posCP.getY() == this.getY();
+        }
+        return false;
+    }
+
     public void setPositionColor(Color positionColor) {
         this.positionColor = positionColor;
     }
@@ -48,6 +61,9 @@ public class Position
     public int getX() {
         return x;
     }
+
+    //PART OF GARBAGE
+    public int getPositionAsArray(){return (Integer.parseInt(Integer.toString(x)+Integer.toString(y)));}
 
     public void setX(int x) {
         this.x = x;

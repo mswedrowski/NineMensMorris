@@ -1,6 +1,8 @@
 package model.enums;
 
-public enum Phase
+import java.io.Serializable;
+
+public enum Phase //implements Serializable
 {
-    PLACE_PIECES,MOVE_PIECES
+    PLACE_PIECES,MOVE_PIECES,END_OF_GAME
 }

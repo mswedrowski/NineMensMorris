@@ -3,7 +3,9 @@ package model;
 import model.enums.Color;
 import model.enums.PlayerType;
 
-public class PlayerState
+import java.io.Serializable;
+
+public class PlayerState implements Serializable
 {
 
     private Color colorOfPlayer;

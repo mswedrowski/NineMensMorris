@@ -4,10 +4,11 @@ import model.enums.Color;
 import model.enums.Phase;
 import model.enums.PlayerType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GameState
+public class GameState implements Serializable
 {
     private static int BOARD_SIZE = 7;
 
@@ -59,7 +60,7 @@ public class GameState
         return (new Random().nextInt(2) == 1) ? playerWhite : playerBlack;
     }
 
-    public PlayerState getTurnOfPlayer() {
+    public PlayerState currentPlayer() {
         return turnOfPlayer;
     }
 
@@ -67,6 +68,7 @@ public class GameState
         this.turnOfPlayer = turnOfPlayer;
     }
 
+    // check if i can del later on??
     public void changeTurnOfPlayer(PlayerState player)
     {
         if(player.getColorOfPlayer() == Color.BLACK)
@@ -79,7 +81,7 @@ public class GameState
         }
     }
 
-    public ArrayList<Position> getPositions() {
+    public ArrayList<Position> getAllPositions() {
         return positions;
     }
 
@@ -103,6 +105,8 @@ public class GameState
         this.phase = phase;
     }
 
+
+
     @Override
     public String toString()
     {
@@ -114,10 +118,10 @@ public class GameState
                 "|       " + positions.get(3).getPositionColorAsString() + "(11)--------------" + positions.get(4).getPositionColorAsString() + "(13)--------------" + positions.get(5).getPositionColorAsString() + "(15)  |\n" +
                 "|       |                   |                    |      |\n" +
                 "|       |                   |                    |      |\n" +
-                "|       |        " + positions.get(7).getPositionColorAsString() + "(22)-----" + positions.get(8).getPositionColorAsString() + "(23)-----" + positions.get(8).getPositionColorAsString() + "(24)    |      |\n" +
+                "|       |        " + positions.get(6).getPositionColorAsString() + "(22)-----" + positions.get(7).getPositionColorAsString() + "(23)-----" + positions.get(8).getPositionColorAsString() + "(24)    |      |\n" +
                 "|       |         |                   |          |      |\n" +
                 "|       |         |                   |          |      |\n" +
-                positions.get(9).getPositionColorAsString() + "(30)--" + positions.get(10).getPositionColorAsString() + "(31)----" + positions.get(11).getPositionColorAsString() + "(32)              " + positions.get(12).getPositionColorAsString() + "(34)----" + positions.get(13).getPositionColorAsString() + "(35)---" + positions.get(15).getPositionColorAsString() + "(36)\n" +
+                positions.get(9).getPositionColorAsString() + "(30)--" + positions.get(10).getPositionColorAsString() + "(31)----" + positions.get(11).getPositionColorAsString() + "(32)              " + positions.get(12).getPositionColorAsString() + "(34)----" + positions.get(13).getPositionColorAsString() + "(35)---" + positions.get(14).getPositionColorAsString() + "(36)\n" +
                 "|       |         |                   |          |      |\n" +
                 "|       |         |                   |          |      |\n" +
                 "|       |        " + positions.get(15).getPositionColorAsString() + "(42)-----" + positions.get(16).getPositionColorAsString() + "(43)-----" + positions.get(17).getPositionColorAsString() + "(44)    |      |\n" +

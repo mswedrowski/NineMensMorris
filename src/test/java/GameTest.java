@@ -13,7 +13,7 @@ public class GameTest
         Game g = new Game(PlayerType.AI,PlayerType.AI);
         GameState gs =  new GameState(PlayerType.AI,PlayerType.AI);
 
-        Assert.assertEquals(gs.getPositions(),g.getAllNonOccupiedPositions(gs));
+        Assert.assertEquals(gs.getAllPositions(),g.getAllNonOccupiedPositions(gs));
     }
 
     @Test
@@ -21,10 +21,10 @@ public class GameTest
     {
         Game g = new Game(PlayerType.AI,PlayerType.AI);
         GameState gs =  new GameState(PlayerType.AI,PlayerType.AI);
-        gs.getPositions().get(3).setPositionColor(Color.BLACK);
+        gs.getAllPositions().get(3).setPositionColor(Color.BLACK);
 
-        System.out.println(gs.getPositions());
+        System.out.println(gs.getAllPositions());
 
-        Assert.assertFalse(gs.getPositions() == g.getAllNonOccupiedPositions(gs));
+        Assert.assertFalse(gs.getAllPositions() == g.getAllNonOccupiedPositions(gs));
     }
 }
