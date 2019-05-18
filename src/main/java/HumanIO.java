@@ -43,13 +43,14 @@ public class HumanIO
 
    }
 
-    public int placeNewPieceIO(GameState gameState) throws IOException
+    public GameState placeNewPieceIO(GameState gameState) throws IOException
     {
        boolean isCorrectInput =false;
 
        PlayerState currentPlayer = gameState.currentPlayer();
        System.out.println(gameState.toString());
        System.out.println("Move of " + currentPlayer.toString());
+       GameState newMove = (GameState) AI.deepClone(gameState);
 
        int requestedArrayPosition = -1;
 
@@ -62,17 +63,17 @@ public class HumanIO
 
                 int requestedField = input.nextInt();
                 requestedArrayPosition = boardPositionToArrayPosition.get(requestedField);
-                Position positionToChange= gameState.getAllPositions().get(requestedArrayPosition);
+                Position positionToChange= newMove.getAllPositions().get(requestedArrayPosition);
 
                 if (positionToChange.isEmpty())
                 {
-                    playerPutingPiece(gameState,requestedArrayPosition);
+                    playerPutingPiece(newMove,requestedArrayPosition);
 
-                    int numberOfMills = BoardInfo.getMills(gameState,requestedArrayPosition);
+                    int numberOfMills = BoardInfo.getMills(newMove,requestedArrayPosition);
 
                     for(int i=0;i<numberOfMills;i++)
                     {
-                        removePieceIO(gameState);
+                        removePieceIO(newMove);
                     }
 
                     isCorrectInput = true;
@@ -87,7 +88,9 @@ public class HumanIO
                 System.out.println("\n Wrong input!");
             }
         }
-        return requestedArrayPosition;
+
+        newMove.changePlayer();
+        return newMove;
     }
 
     public static void playerPutingPiece(GameState gameState,int indexOfPosition)
@@ -139,19 +142,19 @@ public class HumanIO
         return requestedPositionInArray;
     }
 
-    public int  movePieceIO(GameState gameState, PlayerState player)
+    public GameState  movePieceIO(GameState gameState, PlayerState player)
     {
         boolean isCorrectInput =false;
         int requestedPositionMoveFromInArray = -1;
+
+        GameState nextMove =(GameState) AI.deepClone(gameState);
 
         while(!isCorrectInput)
         {
             boolean properPositionMoveFrom = false;
 
-            while(!properPositionMoveFrom)
-            {
-                try
-                {
+            while(!properPositionMoveFrom) {
+                try {
                     System.out.println(gameState);
 
                     System.out.println("Move of " + player.toString());
@@ -160,37 +163,37 @@ public class HumanIO
 
                     int requestedField = input.nextInt();
                     requestedPositionMoveFromInArray = boardPositionToArrayPosition.get(requestedField);
-                    Position positionMoveFrom = gameState.getAllPositions().get(requestedPositionMoveFromInArray);
+                    Position positionMoveFrom = nextMove.getAllPositions().get(requestedPositionMoveFromInArray);
 
-                    if (positionMoveFrom.getPositionColor() == player.getColorOfPlayer())
-                    {
-                        gameState.getPosition(requestedPositionMoveFromInArray).setPositionColor(Color.NONE);
+                    if (positionMoveFrom.getPositionColor() == player.getColorOfPlayer()) {
+                        nextMove.getPosition(requestedPositionMoveFromInArray).setPositionColor(Color.NONE);
                         properPositionMoveFrom = true;
 
 
                         boolean properPositionMoveTo = false;
 
-                        while (!properPositionMoveTo)
-                        {
-                            try
-                            {
+                        while (!properPositionMoveTo) {
+                            try {
+                                System.out.println("Where do you want to move?");
                                 int requestedPositionToMoveInArray = 1;
                                 //Scanner input = new Scanner(System.in);
                                 int requestedFieldToMove = input.nextInt();
 
                                 requestedPositionToMoveInArray = boardPositionToArrayPosition.get(requestedFieldToMove);
-                                Position positionToMove = gameState.getAllPositions().get(requestedPositionToMoveInArray);
+                                Position positionToMove = nextMove.getAllPositions().get(requestedPositionToMoveInArray);
 
-                                System.out.println("Where do you want to move?");
-                                if(positionToMove.getPositionColor() == Color.NONE && BoardInfo.isNeighbour(requestedPositionToMoveInArray,requestedPositionMoveFromInArray))
+
+                                if (positionToMove.getPositionColor() == Color.NONE && BoardInfo.isNeighbour(requestedPositionMoveFromInArray, requestedPositionToMoveInArray))
                                 {
-                                    if(player.getPreviousPosition() != positionToMove)
+                                    if (player.getPreviousPosition() != positionToMove)
                                     {
                                         player.setPreviousPosition(positionMoveFrom);
 
                                         properPositionMoveTo = true;
+                                        isCorrectInput = true;
                                         positionMoveFrom.setPositionColor(Color.NONE);
                                         positionToMove.setPositionColor(player.getColorOfPlayer());
+
                                     }
                                 }
 
@@ -199,22 +202,15 @@ public class HumanIO
                             }
                         }
 
-                    }
-                    else
-                        {
+                    } else {
                         System.out.println("Pick proper position!");
                     }
-                }
-                catch(Exception e)
-                {
+
+                } catch (Exception e) {
                     System.out.println("\n Wrong input!");
                 }
             }
-            System.out.println("Pick position where you want to move");
-
-
-
         }
-        return requestedPositionMoveFromInArray;
+        return nextMove;
     }
 }

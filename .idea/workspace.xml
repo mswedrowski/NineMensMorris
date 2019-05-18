@@ -13,28 +13,29 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/AI_resources/Evaluation.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/BoardInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BoardInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/HumanIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/HumanIO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MinMax.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MinMax.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/GameState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/PlayerState.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/PlayerState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Position.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/AI_Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/AI_Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/GameTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/model.PositionTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/AI_Test.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/model.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-model.PositionTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-AI_Test.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AI_resources/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AI_resources/Evaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AI_resources/Evaluation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BoardInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HumanIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HumanIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MinMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MinMax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/GameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/PlayerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/PlayerState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Position.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AI_Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AI_Test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -83,47 +84,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Color.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/BoardInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="256" column="9" selection-start-line="256" selection-start-column="9" selection-end-line="256" selection-end-column="9" />
+            <state relative-caret-position="150">
+              <caret line="277" column="51" selection-start-line="277" selection-start-column="42" selection-end-line="277" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HumanIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Position.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1536#1537#0" expanded="true" />
-                <element signature="e#1583#1584#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,8 +98,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="98" column="29" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+            <state relative-caret-position="333">
+              <caret line="273" selection-start-line="273" selection-end-line="273" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8709#8710#0" expanded="true" />
+                <element signature="e#8751#8752#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/AI_Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-120">
+              <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="140" column="63" lean-forward="true" selection-start-line="140" selection-start-column="63" selection-end-line="140" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MinMax.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="187">
+              <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,10 +146,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/AI_Test.java">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/Assert.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="109">
+              <caret line="833" column="8" selection-start-line="833" selection-start-column="8" selection-end-line="833" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Minmax.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/GameState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="70" column="22" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -168,36 +187,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
+            <state relative-caret-position="272">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="65" column="30" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/GameState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1398#1399#0" expanded="true" />
-                <element signature="e#1479#1480#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -216,35 +209,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>board.getValueAtPosition</find>
-      <find>System.out.println</find>
-      <find>obj</find>
-      <find>random</find>
-      <find>getRandomPlayer</find>
-      <find>piece</find>
-      <find>updatePhase</find>
-      <find>update</find>
-      <find>black</find>
-      <find>verticalMill</find>
-      <find>checkMill</find>
-      <find>preformNextMovePhasePlace</find>
-      <find>boardPositionToArrayPosition</find>
-      <find>preformNextMovePhaseMove</find>
-      <find>getmi</find>
-      <find>getAllNonOccupiedPositions</find>
-      <find>checkMillOnPositions</find>
-      <find>canRe</find>
-      <find>remove</find>
-      <find>enem</find>
-      <find>current</find>
-      <find>canmove</find>
-      <find>end</find>
       <find>addpie</find>
       <find>pick</find>
       <find>nof</find>
       <find>playerPutingPiece</find>
-      <find>syste</find>
       <find>system.out.</find>
+      <find>//</find>
+      <find>movep</find>
+      <find>tu</find>
+      <find>eval</find>
+      <find>lp</find>
+      <find>system.out</find>
+      <find>getMill</find>
+      <find>LP</find>
+      <find>system.</find>
+      <find>system.oit</find>
+      <find>system</find>
+      <find>setPha</find>
+      <find>setPhase</find>
+      <find>setPh</find>
+      <find>properPositionMoveTo</find>
+      <find>movepie</find>
+      <find>addpi</find>
+      <find>turnof</find>
+      <find>removeIO</find>
+      <find>remove</find>
+      <find>wez</find>
+      <find>wesz</find>
+      <find>syste</find>
+      <find>przed</find>
+      <find>eva</find>
     </findStrings>
     <replaceStrings>
       <replace>positions.get(5).getPositionColorAsString()</replace>
@@ -276,19 +270,21 @@
         <option value="$PROJECT_DIR$/src/test/java/model/PositionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/enums/Phase.java" />
         <option value="$PROJECT_DIR$/src/main/java/AI_resources/Evaluation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Position.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/GameState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BoardInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/PlayerState.java" />
         <option value="$PROJECT_DIR$/src/main/java/HumanIO.java" />
         <option value="$PROJECT_DIR$/src/test/java/AI_Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BoardInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/AI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Position.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/test/java/Minmax.java" />
         <option value="$PROJECT_DIR$/src/main/java/MinMax.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AI.java" />
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/GameState.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="240" />
     <option name="y" value="125" />
     <option name="width" value="1440" />
@@ -300,7 +296,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -333,33 +328,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="AI_resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nine_mens_morris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nine_mens_morris" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nine_mens_morris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nine_mens_morris" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="nine_mens_morris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nine_mens_morris" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,46 +374,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AI_Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;AI_Test&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="AI_Test.deepCloneReferenceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;AI_Test.deepCloneReferenceTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="AI_Test.evaluationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -459,12 +394,52 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PositionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AI_Test.millCounterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;model.PositionTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;AI_Test.millCounterTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Minmax" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;Minmax&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Minmax.testMinMax" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;Minmax.testMinMax&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -482,10 +457,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Game" />
+        <item itemvalue="Gradle.Minmax" />
+        <item itemvalue="Gradle.Minmax.testMinMax" />
         <item itemvalue="Gradle.AI_Test.evaluationTest" />
-        <item itemvalue="Gradle.AI_Test" />
-        <item itemvalue="Gradle.PositionTest" />
-        <item itemvalue="Gradle.AI_Test.deepCloneReferenceTest" />
+        <item itemvalue="Gradle.AI_Test.millCounterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -502,64 +477,65 @@
       <workItem from="1557183039541" duration="38985000" />
       <workItem from="1557651579425" duration="60930000" />
       <workItem from="1557873764256" duration="215000" />
-      <workItem from="1557874130354" duration="1998000" />
+      <workItem from="1557874130354" duration="24536000" />
+      <workItem from="1558179208242" duration="4062000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AI_Test - 2019.05.14 at 19h 57m 23s.xml">
+    <history-entry file="AI_Test - 2019.05.18 at 13h 37m 27s.xml">
       <configuration name="AI_Test" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 21h 37m 06s.xml">
+    <history-entry file="AI_Test_millCounterTest - 2019.05.18 at 13h 39m 10s.xml">
+      <configuration name="AI_Test.millCounterTest" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="AI_Test_evaluationTest - 2019.05.18 at 13h 40m 13s.xml">
       <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 21h 37m 41s.xml">
+    <history-entry file="AI_Test_evaluationTest - 2019.05.18 at 13h 40m 38s.xml">
       <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 21h 40m 54s.xml">
+    <history-entry file="AI_Test_evaluationTest - 2019.05.18 at 13h 40m 42s.xml">
       <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 21h 47m 04s.xml">
+    <history-entry file="AI_Test_evaluationTest - 2019.05.18 at 13h 40m 51s.xml">
       <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 21h 47m 35s.xml">
+    <history-entry file="AI_Test_evaluationTest - 2019.05.18 at 13h 41m 18s.xml">
       <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 21h 48m 40s.xml">
-      <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="Minmax_testMinMax - 2019.05.18 at 13h 43m 52s.xml">
+      <configuration name="Minmax.testMinMax" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 21h 49m 24s.xml">
-      <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="Minmax_testMinMax - 2019.05.18 at 13h 44m 07s.xml">
+      <configuration name="Minmax.testMinMax" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.14 at 22h 36m 50s.xml">
-      <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="AI_Test_evaluationTest - 2019.05.15 at 00h 10m 20s.xml">
-      <configuration name="AI_Test.evaluationTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="Minmax - 2019.05.18 at 13h 46m 23s.xml">
+      <configuration name="Minmax" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102128000" />
+    <option name="totallyTimeSpent" value="128728000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2590604" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2624161" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.3286119" />
       <window_info anchor="bottom" id="Build" order="5" weight="0.3295129" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32719547" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.4305949" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.4688385" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -634,23 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AI_resources/Evaluation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/enums/Color.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -658,30 +617,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BoardInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="256" column="9" selection-start-line="256" selection-start-column="9" selection-end-line="256" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AI_resources/Evaluation.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/HumanIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="98" column="29" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+        <state relative-caret-position="1768">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -690,20 +630,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="1054">
           <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1536#1537#0" expanded="true" />
-            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/Assert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="833" column="8" selection-start-line="833" selection-start-column="8" selection-end-line="833" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BoardInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="277" column="51" selection-start-line="277" selection-start-column="42" selection-end-line="277" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Minmax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MinMax.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="187">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -712,18 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/AI_Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="65" column="30" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="30" />
+        <state relative-caret-position="-120">
+          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -732,12 +706,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+        <state relative-caret-position="442">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1398#1399#0" expanded="true" />
-            <element signature="e#1479#1480#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="273" selection-start-line="273" selection-end-line="273" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8709#8710#0" expanded="true" />
+            <element signature="e#8751#8752#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="140" column="63" lean-forward="true" selection-start-line="140" selection-start-column="63" selection-end-line="140" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

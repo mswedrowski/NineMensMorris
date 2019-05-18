@@ -42,10 +42,49 @@ public class AI_Test
         GameState gameState = new GameState(PlayerType.AI,PlayerType.AI);
 
         gameState.getPlayerBlack().putPieceOnBoard(gameState.getPosition(2));
+        gameState.getPlayerBlack().putPieceOnBoard(gameState.getPosition(1));
+        gameState.getPlayerBlack().putPieceOnBoard(gameState.getPosition(0));
+        gameState.setTurnOfPlayer(gameState.getPlayerBlack());
+        System.out.println(gameState);
 
-        Assert.assertEquals(1,AI.getEvaluation(gameState,Color.BLACK));
+        Assert.assertEquals(6,AI.getEvaluation(gameState,Color.BLACK));
 
-        Assert.assertEquals(-1,AI.getEvaluation(gameState,Color.WHITE));
+        Assert.assertEquals(-3,AI.getEvaluation(gameState,Color.WHITE));
+    }
+
+    @Test
+    public void millCounterTest()
+    {
+        GameState gs = new GameState(PlayerType.AI,PlayerType.AI);
+
+        gs.getPosition(0).setPositionColor(Color.BLACK);
+        gs.getPosition(1).setPositionColor(Color.BLACK);
+        gs.getPosition(2).setPositionColor(Color.BLACK);
+
+        gs.getPosition(16).setPositionColor(Color.BLACK);
+        gs.getPosition(19).setPositionColor(Color.BLACK);
+        gs.getPosition(22).setPositionColor(Color.BLACK);
+
+        gs.getPosition(2).setPositionColor(Color.BLACK);
+
+
+
+        Assert.assertEquals(6,AI.getPotentialMillCount(gs,Color.BLACK));
+    }
+
+    @Test
+    public void checkChangeTurnOfPlayer()
+    {
+        GameState gs  = new GameState(PlayerType.AI,PlayerType.AI);
+
+        //Assert.assertEquals(gs.currentPlayer().getColorOfPlayer(),MinMax.minMaxAlgorithm(gs,2).currentPlayer().getColorOfPlayer());
+    }
+
+
+    @Test
+    public void removeIOTest()
+    {
+
     }
 
 

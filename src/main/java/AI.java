@@ -71,7 +71,7 @@ public class AI
     }
 
 
-    public static void playerPutingPiece(GameState gameState,int indexOfPosition)
+    public static void playerPuttingPiece(GameState gameState,int indexOfPosition)
     {
         Position toPut = gameState.getPosition(indexOfPosition);
         gameState.currentPlayer().putPieceOnBoard(toPut);
@@ -81,6 +81,7 @@ public class AI
     {
         Position toPut = gameState.getPosition(indexOfPosition);
         gameState.getEnemy().getsPieceRemoved(toPut);
+
     }
 
 
@@ -88,32 +89,41 @@ public class AI
     public static ArrayList<GameState> addPiece(GameState gameState)
     {
         ArrayList<GameState> possibleMoves = new ArrayList<>();
-        ArrayList<Position> positions = getAllNonOccupiedPositions(gameState);
+        ArrayList<Position> positions = gameState.getAllPositions();
+
 
         for(int i=0; i<positions.size(); i++ )
         {
-            GameState newPossibleMove = (GameState) AI.deepClone(gameState);
-
-            playerPutingPiece(newPossibleMove,i);
-
-            int numberOfMills = BoardInfo.getPotentialMills(gameState,i);
-
-            if(numberOfMills > 0)
+            if(positions.get(i).getPositionColor() == Color.NONE)
             {
-                possibleMoves = removePiece(newPossibleMove,possibleMoves);
-            }
-            else
-            {
-                newPossibleMove.changePlayer();
-                possibleMoves.add(newPossibleMove);
+                GameState newPossibleMove = (GameState) AI.deepClone(gameState);
+                playerPuttingPiece(newPossibleMove,i);
+
+
+                int numberOfMills = BoardInfo.getPotentialMills(gameState,i);
+
+                if(numberOfMills > 0)
+                {
+
+                    possibleMoves = removePiece(newPossibleMove,possibleMoves);
+
+                }
+                else
+                {
+                    newPossibleMove.changePlayer();
+                    possibleMoves.add(newPossibleMove);
+                }
             }
         }
         return possibleMoves;
     }
 
-    public ArrayList<GameState> addPiecesMovingPhase(GameState gameState)
+
+    public static ArrayList<GameState> addPiecesMovingPhase(GameState gameState)
     {
         ArrayList<GameState> possibleMovesArray =new ArrayList<>();
+
+        PlayerState player = gameState.currentPlayer();
 
         for(int moveFromIndex=0 ;moveFromIndex< gameState.getAllPositions().size();moveFromIndex++)
         {
@@ -125,21 +135,24 @@ public class AI
                 {
                     if(gameState.getPosition(moveToIndex).isEmpty())
                     {
-                        GameState possibleMove = (GameState) AI.deepClone(gameState);
-                        possibleMove.getPosition(moveFromIndex).setPositionColor(Color.NONE);
-                        possibleMove.getPosition(moveToIndex).setPositionColor(gameState.currentPlayer().getColorOfPlayer());
-
-                        if(BoardInfo.getMills(possibleMove,moveToIndex) > 0)
+                        if (! player.getPreviousPosition().equals(gameState.getPosition(moveToIndex)))
                         {
-                            possibleMovesArray = removePiece(possibleMove, possibleMovesArray);
-                        }
-                        else
-                        {
-                            possibleMovesArray.add(possibleMove);
-                        }
+                            player.setPreviousPosition(gameState.getPosition(moveFromIndex));
+                            GameState possibleMove = (GameState) AI.deepClone(gameState);
+                            possibleMove.getPosition(moveFromIndex).setPositionColor(Color.NONE);
+                            possibleMove.getPosition(moveToIndex).setPositionColor(gameState.currentPlayer().getColorOfPlayer());
 
+                            if (BoardInfo.getMills(possibleMove, moveToIndex) > 0)
+                            {
+                                possibleMovesArray = removePiece(possibleMove, possibleMovesArray);
+                            }
+                            else
+                                {
+                                possibleMove.changePlayer();
+                                possibleMovesArray.add(possibleMove);
+                            }
+                        }
                     }
-
                     /* add this from HumanIO later on
                     if(player.getPreviousPosition() != positionToMove)
                     {
@@ -181,6 +194,7 @@ public class AI
                     }
                     else
                     {
+                        possibleMove.changePlayer();
                         possibleMovesArray.add(possibleMove);
                     }
                 }
@@ -188,7 +202,6 @@ public class AI
         }
 
         ArrayList<Position> nonOccupiedPositions = getAllNonOccupiedPositions(gameState);
-
 
         return possibleMovesArray;
     }
@@ -201,13 +214,15 @@ public class AI
         {
             if(BoardInfo.canRemove(newGameState,i))
             {
-                if (BoardInfo.getMills(newGameState, i) > 0)
+                if (BoardInfo.getMills(newGameState, i) == 0)
                 {
                     GameState possibleRemovalState = (GameState) AI.deepClone(newGameState);
-                    possibleRemovalState.getPosition(i).setPositionColor(Color.NONE);
+                    playerGetsPieceRemoved(possibleRemovalState,i);
 
                     possibleRemovalState.changePlayer();
                     possibleMoves.add(possibleRemovalState);
+
+
                 }
             }
         }
@@ -220,9 +235,66 @@ public class AI
     }
 
 
+    public static int getPotentialMillCount(GameState gameState,Color colorToCheck)
+    {
+        int millCounter =0;
+
+        for(int i=0;i<gameState.getAllPositions().size();i++)
+        {
+            if(gameState.getPosition(i).getPositionColor() == colorToCheck)
+            {
+                millCounter += BoardInfo.getMills(gameState,i);
+            }
+        }
+        return millCounter;
+    }
 
 
     public static int getEvaluation(GameState gameState, Color colorToEvaluate)
+    {
+        PlayerState currentPlayer = null;
+
+        if(colorToEvaluate == Color.WHITE)
+        {
+            currentPlayer = gameState.getPlayerWhite();
+        }
+
+        else
+        {
+            currentPlayer = gameState.getPlayerBlack();
+        }
+
+
+        int currentPlayerPieces = currentPlayer.getPiecesOnBoard();
+        int enemyPieces = gameState.getOtherPlayer(currentPlayer).getPiecesOnBoard();
+
+        int mills = getPotentialMillCount(gameState,colorToEvaluate);
+        int evaluationValue = mills + (currentPlayerPieces - enemyPieces)*100;
+
+
+
+        if( gameState.getPhase() != Phase.PLACE_PIECES)
+        {
+            if(enemyPieces <= 2){
+                evaluationValue = 100000;
+            }
+            /*
+            else if (movablePiecesBlack == 0){
+                evaluationValue = 100000;
+            }
+
+            */
+            else if(currentPlayerPieces <= 2)
+            {
+                evaluationValue = -100000;
+            }
+        }
+        return evaluationValue;
+    }
+
+
+/*
+    public static int getEvaluationPotentialMills(GameState gameState, Color colorToEvaluate)
     {
         PlayerState currentPlayer = null;
 
@@ -253,6 +325,7 @@ public class AI
             }
 
             */
+/*
             else if(currentPlayerPieces <= 2)
             {
                 evaluationValue = -100000;
@@ -260,6 +333,7 @@ public class AI
         }
         return evaluationValue;
     }
+    */
 
 
 }

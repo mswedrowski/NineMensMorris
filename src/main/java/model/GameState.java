@@ -44,8 +44,6 @@ public class GameState implements Serializable
 
     public void changePlayer()
     {
-        System.out.println("NOW");
-        System.out.println(turnOfPlayer);
         if(turnOfPlayer == playerBlack)
         {
             turnOfPlayer = playerWhite;
@@ -54,8 +52,7 @@ public class GameState implements Serializable
         {
             turnOfPlayer = playerBlack;
         }
-        System.out.println("LATER");
-        System.out.println(turnOfPlayer);
+
     }
 
 
@@ -128,7 +125,17 @@ public class GameState implements Serializable
         this.phase = phase;
     }
 
-
+    //TEMP
+    public String stringPositions()
+    {
+        StringBuilder sb = new StringBuilder();
+        for (Position pos: positions)
+        {
+            sb.append(pos + " ");
+            sb.append(pos.getPositionColor() + " \n");
+        }
+        return sb.toString();
+    }
 
     @Override
     public String toString()

@@ -24,6 +24,7 @@ public class PlayerState implements Serializable
         this.piecesLost = 0;
         this.colorOfPlayer = colorOfPlayer;
         this.playerType = playerType;
+        this.previousPosition = new Position(-1,-1);
     }
 
     public Position getPreviousPosition()
