@@ -156,7 +156,6 @@ public class HumanIO
             while(!properPositionMoveFrom) {
                 try {
                     System.out.println(gameState);
-
                     System.out.println("Move of " + player.toString());
                     System.out.println("Which piece would you like to move?");
                     Scanner input = new Scanner(System.in);
@@ -165,7 +164,10 @@ public class HumanIO
                     requestedPositionMoveFromInArray = boardPositionToArrayPosition.get(requestedField);
                     Position positionMoveFrom = nextMove.getAllPositions().get(requestedPositionMoveFromInArray);
 
-                    if (positionMoveFrom.getPositionColor() == player.getColorOfPlayer()) {
+
+
+                    if (positionMoveFrom.getPositionColor() == player.getColorOfPlayer())
+                    {
                         nextMove.getPosition(requestedPositionMoveFromInArray).setPositionColor(Color.NONE);
                         properPositionMoveFrom = true;
 
@@ -175,17 +177,16 @@ public class HumanIO
                         while (!properPositionMoveTo) {
                             try {
                                 System.out.println("Where do you want to move?");
-                                int requestedPositionToMoveInArray = 1;
-                                //Scanner input = new Scanner(System.in);
+                                int requestedPositionToMoveInArray = -1;
                                 int requestedFieldToMove = input.nextInt();
 
                                 requestedPositionToMoveInArray = boardPositionToArrayPosition.get(requestedFieldToMove);
                                 Position positionToMove = nextMove.getAllPositions().get(requestedPositionToMoveInArray);
 
-
                                 if (positionToMove.getPositionColor() == Color.NONE && BoardInfo.isNeighbour(requestedPositionMoveFromInArray, requestedPositionToMoveInArray))
                                 {
-                                    if (player.getPreviousPosition() != positionToMove)
+
+                                    if (BoardInfo.isPreviousPiecePositionValid(positionMoveFrom,positionToMove))
                                     {
                                         player.setPreviousPosition(positionMoveFrom);
 
@@ -193,11 +194,13 @@ public class HumanIO
                                         isCorrectInput = true;
                                         positionMoveFrom.setPositionColor(Color.NONE);
                                         positionToMove.setPositionColor(player.getColorOfPlayer());
+                                        positionToMove.setPreviousPiecePosition(positionMoveFrom);
 
                                     }
                                 }
-
-                            } catch (Exception e) {
+                            }
+                            catch (Exception e)
+                            {
                                 System.out.println("Cannot move to this position");
                             }
                         }

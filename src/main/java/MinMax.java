@@ -3,7 +3,9 @@ import model.enums.Color;
 import model.enums.Phase;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class MinMax
 {
@@ -24,6 +26,7 @@ public class MinMax
         if(gameState.getPhase() == Phase.PLACE_PIECES)
         {
             ArrayList<GameState> possibleMoves = AI.addPiece(gameState);
+            Collections.shuffle(possibleMoves);
 
             return (possibleMoves.stream().max(Comparator.comparing(move -> minAdd(move,depth-1,colorToEvaluate))).get());
 
@@ -31,6 +34,13 @@ public class MinMax
         if(gameState.getPhase() == Phase.MOVE_PIECES)
         {
             ArrayList<GameState> possibleMoves = AI.addPiecesMovingPhase(gameState);
+            // All moves are blocked
+            if(possibleMoves.isEmpty())
+            {
+                gameState.setPhase(Phase.END_OF_GAME);
+                return gameState;
+            }
+            Collections.shuffle(possibleMoves);
 
             return (possibleMoves.stream().max(Comparator.comparing(move -> minMove(move,depth-1,colorToEvaluate))).get());
         }
@@ -81,7 +91,8 @@ public class MinMax
             return AI.getEvaluation(gameState,colorToEval);
         }
 
-        return AI.addPiecesMovingPhase(gameState).stream().map(move -> maxMove(move,depth-1,colorToEval))
+        ArrayList<GameState> possibleMoves = AI.addPiecesMovingPhase(gameState);
+        return possibleMoves.stream().map(move -> maxMove(move,depth-1,colorToEval))
                 .min(Comparator.comparing(Integer::valueOf)).get();
     }
     public static int maxMove(GameState gameState, int depth, Color colorToEval)
@@ -92,7 +103,8 @@ public class MinMax
             return AI.getEvaluation(gameState,colorToEval);
         }
 
-        return AI.addPiecesMovingPhase(gameState).stream().map(move -> minMove(move,depth -1,colorToEval))
+        ArrayList<GameState> possibleMoves = AI.addPiecesMovingPhase(gameState);
+        return possibleMoves.stream().map(move -> minMove(move,depth -1,colorToEval))
                 .max(Comparator.comparing(Integer::valueOf)).get();
     }
 

@@ -14,36 +14,6 @@ import java.util.stream.Collectors;
 
 public class AI
 {
-    // NEED TO REFACTOR THIS GARBAGE
-    private HashMap<Integer, Integer> boardPositionToArrayPosition;
-    public AI()
-    {
-        boardPositionToArrayPosition = new HashMap<>();
-        boardPositionToArrayPosition.put(0,0);
-        boardPositionToArrayPosition.put(3,1);
-        boardPositionToArrayPosition.put(6,2);
-        boardPositionToArrayPosition.put(11,3);
-        boardPositionToArrayPosition.put(13,4);
-        boardPositionToArrayPosition.put(15,5);
-        boardPositionToArrayPosition.put(22,6);
-        boardPositionToArrayPosition.put(23,7);
-        boardPositionToArrayPosition.put(24,8);
-        boardPositionToArrayPosition.put(30,9);
-        boardPositionToArrayPosition.put(31,10);
-        boardPositionToArrayPosition.put(32,11);
-        boardPositionToArrayPosition.put(34,12);
-        boardPositionToArrayPosition.put(35,13);
-        boardPositionToArrayPosition.put(36,14);
-        boardPositionToArrayPosition.put(42,15);
-        boardPositionToArrayPosition.put(43,16);
-        boardPositionToArrayPosition.put(44,17);
-        boardPositionToArrayPosition.put(51,18);
-        boardPositionToArrayPosition.put(53,19);
-        boardPositionToArrayPosition.put(55,20);
-        boardPositionToArrayPosition.put(60,21);
-        boardPositionToArrayPosition.put(63,22);
-        boardPositionToArrayPosition.put(66,23);
-    }
     public static Object deepClone(Object object)
     {
         try {
@@ -65,9 +35,20 @@ public class AI
         return 0 < BoardInfo.getPotentialMills(gameState,potentialPosition);
     }
 
-    public static ArrayList<Position> getAllNonOccupiedPositions(GameState gameState)
+    public static ArrayList<Integer> getAllNonOccupiedPositions(GameState gameState)
     {
-        return (ArrayList<Position>) gameState.getAllPositions().stream().filter(Position::isEmpty).collect(Collectors.toList());
+        return (ArrayList<Integer>) gameState.getAllPositions().stream().filter(Position::isEmpty)
+                .map(Position::getPositionBoardName).collect(Collectors.toList());
+    }
+
+    public static ArrayList<Integer> getAllNonOccupiedPositionArrayInx(GameState gameState)
+    {
+        ArrayList<Integer> freePositions = getAllNonOccupiedPositions(gameState);
+        for(int i=0;i<freePositions.size();i++)
+        {
+            freePositions.set(i,BoardInfo.boardPositionToArrayInx(freePositions.get(i)));
+        }
+        return freePositions;
     }
 
 
@@ -91,7 +72,6 @@ public class AI
         ArrayList<GameState> possibleMoves = new ArrayList<>();
         ArrayList<Position> positions = gameState.getAllPositions();
 
-
         for(int i=0; i<positions.size(); i++ )
         {
             if(positions.get(i).getPositionColor() == Color.NONE)
@@ -99,8 +79,7 @@ public class AI
                 GameState newPossibleMove = (GameState) AI.deepClone(gameState);
                 playerPuttingPiece(newPossibleMove,i);
 
-
-                int numberOfMills = BoardInfo.getPotentialMills(gameState,i);
+                int numberOfMills = BoardInfo.getPotentialMills(newPossibleMove,i);
 
                 if(numberOfMills > 0)
                 {
@@ -125,22 +104,34 @@ public class AI
 
         PlayerState player = gameState.currentPlayer();
 
-        for(int moveFromIndex=0 ;moveFromIndex< gameState.getAllPositions().size();moveFromIndex++)
+        if(gameState.getPhase() == Phase.END_OF_GAME)
+        {
+            possibleMovesArray.add(gameState);
+            return possibleMovesArray;
+        }
+
+        for(int moveFromIndex=0; moveFromIndex< gameState.getAllPositions().size();moveFromIndex++)
         {
             if(gameState.getPosition(moveFromIndex).getPositionColor() == gameState.currentPlayer().getColorOfPlayer())
             {
-                ArrayList<Integer> neighboursPositions = BoardInfo.getNeighboursOfPosition(moveFromIndex);
+                ArrayList<Integer> allowedMoves = BoardInfo.getNeighboursOfPosition(moveFromIndex);
 
-                for(Integer moveToIndex : neighboursPositions)
+                if(gameState.currentPlayer().getPiecesOnBoard() == 3)
                 {
-                    if(gameState.getPosition(moveToIndex).isEmpty())
-                    {
-                        if (! player.getPreviousPosition().equals(gameState.getPosition(moveToIndex)))
+                    allowedMoves = getAllNonOccupiedPositionArrayInx(gameState);
+                }
+
+                    for(Integer moveToIndex : allowedMoves)
+                    {   GameState possibleMove = (GameState) AI.deepClone(gameState);
+
+                        Position positionToMove = possibleMove.getPosition(moveToIndex);
+                        Position positionMoveFrom = possibleMove.getPosition(moveFromIndex);
+
+                        if(gameState.getPosition(moveToIndex).isEmpty() && BoardInfo.isPreviousPiecePositionValid(positionMoveFrom,positionToMove))
                         {
-                            player.setPreviousPosition(gameState.getPosition(moveFromIndex));
-                            GameState possibleMove = (GameState) AI.deepClone(gameState);
-                            possibleMove.getPosition(moveFromIndex).setPositionColor(Color.NONE);
-                            possibleMove.getPosition(moveToIndex).setPositionColor(gameState.currentPlayer().getColorOfPlayer());
+                            positionMoveFrom.setPositionColor(Color.NONE);
+                            positionToMove.setPositionColor(gameState.currentPlayer().getColorOfPlayer());
+                            positionToMove.setPreviousPiecePosition(positionMoveFrom);
 
                             if (BoardInfo.getMills(possibleMove, moveToIndex) > 0)
                             {
@@ -148,64 +139,22 @@ public class AI
                             }
                             else
                                 {
-                                possibleMove.changePlayer();
-                                possibleMovesArray.add(possibleMove);
+                                    possibleMove.changePlayer();
+                                    possibleMovesArray.add(possibleMove);
                             }
                         }
                     }
-                    /* add this from HumanIO later on
-                    if(player.getPreviousPosition() != positionToMove)
-                    {
-                        player.setPreviousPosition(positionMoveFrom);
-
-                        properPositionMoveTo = true;
-                        positionMoveFrom.setPositionColor(Color.NONE);
-                        positionToMove.setPositionColor(player.getColorOfPlayer());
-
-                     */
-                    }
                 }
             }
-        return possibleMovesArray;
-        }
 
-
-    public ArrayList<GameState> addPiecesThreePiecesLeft(GameState gameState)
-    {
-        ArrayList<GameState> possibleMovesArray =new ArrayList<>();
-
-        for(int moveFromIndex=0; moveFromIndex < gameState.getAllPositions().size();moveFromIndex++)
+        // all moves blocked
+        if (possibleMovesArray.isEmpty())
         {
-            if(gameState.getPosition(moveFromIndex).getPositionColor() == gameState.currentPlayer().getColorOfPlayer())
-            {
-                ArrayList<Position> positionsToMove = getAllNonOccupiedPositions(gameState);
-
-                for(Position position : positionsToMove)
-                {
-                    int moveToIndex = position.getPositionAsArrayInx();
-
-                    GameState possibleMove = (GameState) AI.deepClone(gameState);
-                    possibleMove.getPosition(moveFromIndex).setPositionColor(Color.NONE);
-                    possibleMove.getPosition(moveToIndex).setPositionColor(gameState.currentPlayer().getColorOfPlayer());
-
-                    if(BoardInfo.getMills(possibleMove,moveToIndex) > 0)
-                    {
-                        possibleMovesArray = removePiece(possibleMove,possibleMovesArray);
-                    }
-                    else
-                    {
-                        possibleMove.changePlayer();
-                        possibleMovesArray.add(possibleMove);
-                    }
-                }
-            }
+            gameState.setPhase(Phase.END_OF_GAME);
+            possibleMovesArray.add(gameState);
         }
-
-        ArrayList<Position> nonOccupiedPositions = getAllNonOccupiedPositions(gameState);
-
         return possibleMovesArray;
     }
-
 
 
     public static ArrayList<GameState> removePiece(GameState newGameState,ArrayList<GameState> possibleMoves)
@@ -221,8 +170,6 @@ public class AI
 
                     possibleRemovalState.changePlayer();
                     possibleMoves.add(possibleRemovalState);
-
-
                 }
             }
         }
@@ -251,7 +198,7 @@ public class AI
 
 
     public static int getEvaluation(GameState gameState, Color colorToEvaluate)
-    {
+        {
         PlayerState currentPlayer = null;
 
         if(colorToEvaluate == Color.WHITE)
@@ -263,30 +210,35 @@ public class AI
         {
             currentPlayer = gameState.getPlayerBlack();
         }
-
-
         int currentPlayerPieces = currentPlayer.getPiecesOnBoard();
         int enemyPieces = gameState.getOtherPlayer(currentPlayer).getPiecesOnBoard();
-
         int mills = getPotentialMillCount(gameState,colorToEvaluate);
         int evaluationValue = mills + (currentPlayerPieces - enemyPieces)*100;
 
-
-
+        // TO FIX
         if( gameState.getPhase() != Phase.PLACE_PIECES)
         {
-            if(enemyPieces <= 2){
-                evaluationValue = 100000;
-            }
-            /*
-            else if (movablePiecesBlack == 0){
+            if(enemyPieces <= 2)
+            {
                 evaluationValue = 100000;
             }
 
-            */
             else if(currentPlayerPieces <= 2)
             {
                 evaluationValue = -100000;
+            }
+        }
+
+        // due to block
+        else if( gameState.getPhase() == Phase.END_OF_GAME)
+        {
+            if( currentPlayer.getColorOfPlayer() == colorToEvaluate)
+            {
+                return -100000;
+            }
+            else
+            {
+                return  100000;
             }
         }
         return evaluationValue;

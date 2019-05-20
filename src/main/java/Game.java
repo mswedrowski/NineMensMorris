@@ -2,7 +2,6 @@ import model.GameState;
 import model.PlayerState;
 import model.Position;
 
-import model.enums.Color;
 import model.enums.Phase;
 import model.enums.PlayerType;
 
@@ -69,7 +68,6 @@ public class Game
 
     public GameState preformNextMovePhaseMove(GameState gameState)
     {
-        System.out.println(gameState);
         PlayerState currentPlayer = gameState.currentPlayer();
 
         if(currentPlayer.getPlayerType() == PlayerType.HUMAN)
@@ -88,11 +86,9 @@ public class Game
         }
         else
         {
-            //Temp Currently not working
             gameState = MinMax.minMaxAlgorithm(gameState,3);
         }
 
-        //int numOfMills = BoardInfo.getMills(gameState,pickedPosition);
 
         gameState.changePlayer();
         return gameState;
@@ -106,69 +102,73 @@ public class Game
         return (ArrayList<Position>) gameState.getAllPositions().stream().filter(Position::isEmpty).collect(Collectors.toList());
     }
 
-    public void updatePhase(GameState gameState)
+    public void updatePhasePlace(GameState gameState)
     {
+
+
         if(gameState.getPlayerBlack().getPiecesInDrawer()==0 && gameState.getPlayerWhite().getPiecesInDrawer() == 0)
-        {
-            gameState.setPhase(Phase.MOVE_PIECES);      //should be move_pieces
-        }
-        else if(gameState.getPhase() == Phase.MOVE_PIECES
-                && gameState.getPlayerBlack().getPiecesOnBoard() < 3 && gameState.getPlayerWhite().getPiecesOnBoard() < 3)
         {
             gameState.setPhase(Phase.MOVE_PIECES);
         }
+
         else
         {
             gameState.setPhase(Phase.PLACE_PIECES);
         }
     }
 
-    public void isEndOfGame()
+
+
+
+    public void updatePhaseMove(GameState gameState)
     {
-        if(gameState.getPlayerWhite().getPiecesOnBoard() < 3 || gameState.getPlayerBlack().getPiecesOnBoard() < 3)
+        if (gameState.getPhase() == Phase.END_OF_GAME || (gameState.getPhase() == Phase.MOVE_PIECES
+                && gameState.getPlayerBlack().getPiecesOnBoard() < 3 || gameState.getPlayerWhite().getPiecesOnBoard() < 3))
         {
-        gameState.setPhase(Phase.END_OF_GAME);
+            gameState.setPhase(Phase.END_OF_GAME);
+            System.out.println(gameState);
+            System.out.println("Koniec");
+
         }
+
     }
+
 
     public static void main(String[] args)
     {
-
-
         Game game = new Game(PlayerType.AI,PlayerType.HUMAN);
-
-
         while (game.gameState.getPhase() == Phase.PLACE_PIECES)
         {
             System.out.println(game.gameState);
             game.gameState = game.preformNextMovePhasePlace(game.gameState);
             System.out.println("TERAZ KOLEJKA");
-
-
             System.out.println(game.gameState.currentPlayer());
-            game.updatePhase(game.gameState);
+            game.updatePhasePlace(game.gameState);
         }
-
 
         while (game.gameState.getPhase() == Phase.MOVE_PIECES)
         {
-
+            System.out.println(game.gameState);
             game.gameState = game.preformNextMovePhaseMove(game.gameState);
-            //game.updatePhase(game.gameState);
+            game.updatePhaseMove(game.gameState);
 
         }
 
 
 
 
-        /*
 
+  /*
         GameState gs = new GameState(PlayerType.AI,PlayerType.AI);
 
         gs.getPosition(0).setPositionColor(Color.BLACK);
-        gs.getPosition(1).setPositionColor(Color.BLACK);
-        gs.getPosition(5).setPositionColor(Color.WHITE);
+        gs.getPosition(4).setPositionColor(Color.BLACK);
+        gs.getPosition(5).setPositionColor(Color.BLACK);
+        gs.getPosition(8).setPositionColor(Color.BLACK);
+        gs.getPosition(3).setPositionColor(Color.WHITE);
         gs.getPosition(6).setPositionColor(Color.WHITE);
+        gs.getPosition(17).setPositionColor(Color.WHITE);
+        gs.getPosition(16).setPositionColor(Color.WHITE);
         //gs.getPosition(0).setPositionColor(Color.BLACK);
         gs.setTurnOfPlayer(gs.getPlayerBlack());
         System.out.println(gs);
@@ -176,8 +176,8 @@ public class Game
 
         GameState result = MinMax.minMaxAlgorithm(gs,1);
         System.out.println(result);
+*/
 
-        */
 
 
 

@@ -9,12 +9,14 @@ public class Position implements Serializable
     private int x;
     private int y;
     private Color positionColor;
+    private Position previousPiecePosition;
 
     public Position(int x, int y)
     {
         this.x = x;
         this.y = y;
         positionColor = Color.NONE;
+        previousPiecePosition = null;
     }
 
     public boolean isEmpty()
@@ -63,7 +65,7 @@ public class Position implements Serializable
     }
 
     //PART OF GARBAGE
-    public int getPositionAsArrayInx(){return (Integer.parseInt(Integer.toString(x)+Integer.toString(y)));}
+    public int getPositionBoardName(){return (Integer.parseInt(Integer.toString(x)+Integer.toString(y)));}
 
     public void setX(int x) {
         this.x = x;
@@ -75,6 +77,17 @@ public class Position implements Serializable
 
     public void setY(int y) {
         this.y = y;
+    }
+
+
+    public Position getPreviousPiecePosition()
+    {
+        return previousPiecePosition;
+    }
+
+    public void setPreviousPiecePosition(Position previousPiecePosition)
+    {
+        this.previousPiecePosition = previousPiecePosition;
     }
 
     @Override
