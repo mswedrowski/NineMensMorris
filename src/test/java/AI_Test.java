@@ -77,7 +77,7 @@ public class AI_Test
     {
         GameState gs  = new GameState(PlayerType.AI,PlayerType.AI);
 
-        //Assert.assertEquals(gs.currentPlayer().getColorOfPlayer(),MinMax.minMaxAlgorithm(gs,2).currentPlayer().getColorOfPlayer());
+        //Assert.assertEquals(gs.currentPlayer().getColorOfPlayer(),tempUseless.FormerMiniMax.miniMaxAlgorithm(gs,2).currentPlayer().getColorOfPlayer());
     }
 
 

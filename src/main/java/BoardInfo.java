@@ -251,85 +251,45 @@ public class BoardInfo {
     }
 
 
-    public static int getScoreOfPosition(int requestedPosition)
+
+    public static int fieldScoreHeuristic(int posInArray)
     {
-        switch (requestedPosition) {
-            case 0:
-                neighbors.addAll(Arrays.asList(1, 9));
-                break;
-            case 1:
-                neighbors.addAll(Arrays.asList(0, 2, 4));
-                break;
-            case 2:
-                neighbors.addAll(Arrays.asList(1, 14));
-                break;
-            case 3:
-                neighbors.addAll(Arrays.asList(4, 10));
-                break;
-            case 4:
-                neighbors.addAll(Arrays.asList(1, 3, 5, 7));
-                break;
-            case 5:
-                neighbors.addAll(Arrays.asList(4, 13));
-                break;
-            case 6:
-                neighbors.addAll(Arrays.asList(7, 11));
-                break;
-            case 7:
-                neighbors.addAll(Arrays.asList(4, 6, 8));
-                break;
-            case 8:
-                neighbors.addAll(Arrays.asList(7, 12));
-                break;
-            case 9:
-                neighbors.addAll(Arrays.asList(0, 9, 21, 10));
-                break;
-            case 10:
-                neighbors.addAll(Arrays.asList(9, 11, 3, 18));
-                break;
-            case 11:
-                neighbors.addAll(Arrays.asList(6, 10, 15));
-                break;
-            case 12:
-                neighbors.addAll(Arrays.asList(8, 13, 17));
-                break;
-            case 13:
-                neighbors.addAll(Arrays.asList(5, 12, 14, 20));
-                break;
-            case 14:
-                neighbors.addAll(Arrays.asList(2, 13, 23));
-                break;
-            case 15:
-                neighbors.addAll(Arrays.asList(11, 16));
-                break;
-            case 16:
-                neighbors.addAll(Arrays.asList(15, 17, 19));
-                break;
-            case 17:
-                neighbors.addAll(Arrays.asList(12, 16));
-                break;
-            case 18:
-                neighbors.addAll(Arrays.asList(10, 19));
-                break;
-            case 19:
-                neighbors.addAll(Arrays.asList(16, 18, 20, 22));
-                break;
-            case 20:
-                neighbors.addAll(Arrays.asList(13, 19));
-                break;
+        int result =-1;
+
+        switch (posInArray)
+        {
+            case 0 :
             case 21:
-                neighbors.addAll(Arrays.asList(9, 22));
-                break;
-            case 22:
-                neighbors.addAll(Arrays.asList(19, 21, 23));
-                break;
             case 23:
-                neighbors.addAll(Arrays.asList(22, 14));
-                break;
-            default:
-                break;
+            case 2 :
+                result = 3; break;
+            case 1 :
+            case 19 :
+            case 14:
+            case 12:
+            case 11 :
+            case 9 :
+            case 22:
+                result = 7; break;
+            case 3 :
+            case 20 :
+            case 18 :
+                result = 5; break;
+            case 4 :
+            case 13:
+            case 10 :
+            case 5:
+                result = 10; break;
+            case 6:
+            case 17 :
+            case 15 :
+            case 8 :
+                result = 2; break;
+            case 7 :
+            case 16 :
+                result = 4; break;
         }
-        return neighbors;
+        return result;
     }
 
 

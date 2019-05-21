@@ -2,6 +2,7 @@ import model.GameState;
 import model.PlayerState;
 import model.Position;
 import model.enums.Color;
+import model.enums.HeuristicType;
 import model.enums.Phase;
 
 import java.io.ByteArrayInputStream;
@@ -9,11 +10,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.stream.Collectors;
 
 public class AI
 {
+    static HeuristicType currentHeuristics = HeuristicType.PieceCount;
+
+
+    public static void changeHeuristics(HeuristicType heuristicType)
+    {
+        currentHeuristics = heuristicType;
+    }
+
     public static Object deepClone(Object object)
     {
         try {
@@ -197,95 +205,13 @@ public class AI
     }
 
 
-    public static int getEvaluation(GameState gameState, Color colorToEvaluate)
-        {
-        PlayerState currentPlayer = null;
-
-        if(colorToEvaluate == Color.WHITE)
-        {
-            currentPlayer = gameState.getPlayerWhite();
-        }
-
-        else
-        {
-            currentPlayer = gameState.getPlayerBlack();
-        }
-        int currentPlayerPieces = currentPlayer.getPiecesOnBoard();
-        int enemyPieces = gameState.getOtherPlayer(currentPlayer).getPiecesOnBoard();
-        int mills = getPotentialMillCount(gameState,colorToEvaluate);
-        int evaluationValue = mills + (currentPlayerPieces - enemyPieces)*100;
-
-        // TO FIX
-        if( gameState.getPhase() != Phase.PLACE_PIECES)
-        {
-            if(enemyPieces <= 2)
-            {
-                evaluationValue = 100000;
-            }
-
-            else if(currentPlayerPieces <= 2)
-            {
-                evaluationValue = -100000;
-            }
-        }
-
-        // due to block
-        else if( gameState.getPhase() == Phase.END_OF_GAME)
-        {
-            if( currentPlayer.getColorOfPlayer() == colorToEvaluate)
-            {
-                return -100000;
-            }
-            else
-            {
-                return  100000;
-            }
-        }
-        return evaluationValue;
-    }
-
-
-/*
-    public static int getEvaluationPotentialMills(GameState gameState, Color colorToEvaluate)
+    public static int getEvaluation(HeuristicType heuristic,GameState gameState, Color colorToEvaluate)
     {
-        PlayerState currentPlayer = null;
-
-        if(colorToEvaluate == Color.WHITE)
-        {
-            currentPlayer = gameState.getPlayerWhite();
-        }
-
-        else
-        {
-            currentPlayer = gameState.getPlayerBlack();
-        }
-
-
-        int currentPlayerPieces = currentPlayer.getPiecesOnBoard();
-        int enemyPieces = gameState.getOtherPlayer(currentPlayer).getPiecesOnBoard();
-
-        int evaluationValue = currentPlayerPieces - enemyPieces;
-
-        if( gameState.getPhase() != Phase.PLACE_PIECES)
-        {
-            if(enemyPieces <= 2){
-                evaluationValue = 100000;
-            }
-            /*
-            else if (movablePiecesBlack == 0){
-                evaluationValue = 100000;
-            }
-
-            */
-/*
-            else if(currentPlayerPieces <= 2)
-            {
-                evaluationValue = -100000;
-            }
-        }
-        return evaluationValue;
+       return Heuristics.getEvaluation(heuristic,gameState,colorToEvaluate);
     }
-    */
+
+
+
 
 
 }

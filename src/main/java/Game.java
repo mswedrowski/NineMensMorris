@@ -2,6 +2,8 @@ import model.GameState;
 import model.PlayerState;
 import model.Position;
 
+import model.enums.AlgorithmType;
+import model.enums.HeuristicType;
 import model.enums.Phase;
 import model.enums.PlayerType;
 
@@ -13,6 +15,9 @@ import java.util.stream.Collectors;
 
 public class Game
 {
+
+    public static final int alpha = Integer.MIN_VALUE;
+    public static final int beta  = Integer.MAX_VALUE;
     private GameState gameState;
 
     public Game(PlayerType playerBlackType,PlayerType playerWhiteType)
@@ -42,26 +47,8 @@ public class Game
         }
         else
         {
-
-            gameState = MinMax.minMaxAlgorithm(gameState,3);
-
-            //System.out.println(gameState);
-            /*
-            //Temp random
-           ArrayList<Position> positions= getAllNonOccupiedPositions(gameState);
-           pickedPosition = new Random().nextInt(positions.size());
-           System.out.println(pickedPosition);
-
-           Position positionToChange = positions.get(pickedPosition);
-           System.out.println("AI_resources");
-           System.out.println(positionToChange);
-           currentPlayer.putPieceOnBoard(positionToChange);
-
-            */
+            gameState = AIgetMove(currentPlayer);
         }
-
-        //int numOfMills = BoardInfo.getMills(gameState,pickedPosition);
-
         return gameState;
     }
 
@@ -77,7 +64,6 @@ public class Game
             try
             {
                 gameState = humanIO.movePieceIO(gameState,currentPlayer);
-
             }
             catch (Exception e)
             {
@@ -86,7 +72,8 @@ public class Game
         }
         else
         {
-            gameState = MinMax.minMaxAlgorithm(gameState,3);
+
+            gameState = AIgetMove(currentPlayer);
         }
 
 
@@ -96,6 +83,21 @@ public class Game
 
 
 
+    public GameState AIgetMove(PlayerState currentPlayer)
+    {
+        Result result = null;
+        HeuristicType heuristicType = currentPlayer.getHeuristicType();
+        if(currentPlayer.getAlgorithmType() == AlgorithmType.MINIMAX)
+        {
+            result = Algorithms.miniMax(gameState,3,gameState.getPhase(),true,currentPlayer.getColorOfPlayer(),heuristicType);
+        }
+        else if(currentPlayer.getAlgorithmType() == AlgorithmType.ALPHABETA)
+        {
+            result = Algorithms.alphaBeta(gameState,3,alpha,beta,gameState.getPhase(),true,currentPlayer.getColorOfPlayer(),heuristicType);
+        }
+        return result.getBoard();
+    }
+
 
     public ArrayList<Position> getAllNonOccupiedPositions(GameState gameState)
     {
@@ -104,8 +106,6 @@ public class Game
 
     public void updatePhasePlace(GameState gameState)
     {
-
-
         if(gameState.getPlayerBlack().getPiecesInDrawer()==0 && gameState.getPlayerWhite().getPiecesInDrawer() == 0)
         {
             gameState.setPhase(Phase.MOVE_PIECES);
@@ -116,9 +116,6 @@ public class Game
             gameState.setPhase(Phase.PLACE_PIECES);
         }
     }
-
-
-
 
     public void updatePhaseMove(GameState gameState)
     {
@@ -136,12 +133,13 @@ public class Game
 
     public static void main(String[] args)
     {
-        Game game = new Game(PlayerType.AI,PlayerType.HUMAN);
+        Game game = new Game(PlayerType.AI,PlayerType.AI);
+        game.gameState.getPlayerWhite().setHeuristicType(HeuristicType.NeighboursCount);
         while (game.gameState.getPhase() == Phase.PLACE_PIECES)
         {
             System.out.println(game.gameState);
             game.gameState = game.preformNextMovePhasePlace(game.gameState);
-            System.out.println("TERAZ KOLEJKA");
+            System.out.println("TURN OF PLAYER: ");
             System.out.println(game.gameState.currentPlayer());
             game.updatePhasePlace(game.gameState);
         }
@@ -151,36 +149,7 @@ public class Game
             System.out.println(game.gameState);
             game.gameState = game.preformNextMovePhaseMove(game.gameState);
             game.updatePhaseMove(game.gameState);
-
         }
-
-
-
-
-
-  /*
-        GameState gs = new GameState(PlayerType.AI,PlayerType.AI);
-
-        gs.getPosition(0).setPositionColor(Color.BLACK);
-        gs.getPosition(4).setPositionColor(Color.BLACK);
-        gs.getPosition(5).setPositionColor(Color.BLACK);
-        gs.getPosition(8).setPositionColor(Color.BLACK);
-        gs.getPosition(3).setPositionColor(Color.WHITE);
-        gs.getPosition(6).setPositionColor(Color.WHITE);
-        gs.getPosition(17).setPositionColor(Color.WHITE);
-        gs.getPosition(16).setPositionColor(Color.WHITE);
-        //gs.getPosition(0).setPositionColor(Color.BLACK);
-        gs.setTurnOfPlayer(gs.getPlayerBlack());
-        System.out.println(gs);
-
-
-        GameState result = MinMax.minMaxAlgorithm(gs,1);
-        System.out.println(result);
-*/
-
-
-
-
 
     }
 }

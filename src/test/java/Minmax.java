@@ -5,9 +5,4 @@ import model.enums.PlayerType;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
 
-public class Minmax
-{
-
-}
