@@ -18,6 +18,9 @@ public class PlayerState implements Serializable
     private PlayerType playerType;
     private AlgorithmType algorithmType;
     private HeuristicType heuristicType;
+    private int evalnumber;
+    private int time;
+    private int numberOfMoves;
 
     PlayerState(Color colorOfPlayer, PlayerType playerType)
     {
@@ -27,6 +30,7 @@ public class PlayerState implements Serializable
         this.colorOfPlayer = colorOfPlayer;
         this.playerType = playerType;
         this.previousPosition = new Position(-1,-1);
+        this.evalnumber = 0;
 
         if(this.playerType == PlayerType.HUMAN)
         {
@@ -64,8 +68,32 @@ public class PlayerState implements Serializable
         return algorithmType;
     }
 
+    public int getNumberOfMoves() {
+        return numberOfMoves;
+    }
+
+    public void setNumberOfMoves(int numberOfMoves) {
+        this.numberOfMoves = numberOfMoves;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
     public void setAlgorithmType(AlgorithmType algorithmType) {
         this.algorithmType = algorithmType;
+    }
+
+    public int getEvalnumber() {
+        return evalnumber;
+    }
+
+    public void setEvalnumber(int evalnumber) {
+        this.evalnumber = evalnumber;
     }
 
     public HeuristicType getHeuristicType() {

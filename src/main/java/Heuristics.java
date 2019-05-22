@@ -7,8 +7,7 @@ import model.enums.Phase;
 
 import java.util.ArrayList;
 
-public class Heuristics
-{
+public class Heuristics {
 
     public static int getPotentialMillCount(GameState gameState, Color colorToCheck) {
         int millCounter = 0;
@@ -34,7 +33,8 @@ public class Heuristics
 
             if (colorToEvaluate == Color.WHITE) {
                 currentPlayer = gameState.getPlayerWhite();
-            } else {
+            }
+            else {
                 currentPlayer = gameState.getPlayerBlack();
             }
             int currentPlayerPieces = currentPlayer.getPiecesOnBoard();
@@ -42,7 +42,7 @@ public class Heuristics
             int mills = getPotentialMillCount(gameState, colorToEvaluate);
             int evaluationValue = mills + (currentPlayerPieces - enemyPieces) * 100;
 
-            // TO FIX
+
             if (gameState.getPhase() != Phase.PLACE_PIECES) {
                 if (enemyPieces <= 2) {
                     evaluationValue = 100000;
@@ -60,7 +60,10 @@ public class Heuristics
                 }
             }
             evaluation = evaluationValue;
-        } else if (heuristicType == HeuristicType.NeighboursCount) {
+        }
+
+
+        else if (heuristicType == HeuristicType.NeighboursCount) {
             int evaluationValue = 0;
 
             PlayerState currentPlayer = null;
@@ -92,13 +95,13 @@ public class Heuristics
             }
 
             evaluation = evaluationValue;
-        } else if (heuristicType == HeuristicType.FieldScore) {
+        }
+
+        else if (heuristicType == HeuristicType.FieldScore) {
             int evaluationValue = 0;
-
             Color oppositeColor = null;
-
-
             PlayerState currentPlayer = null;
+
 
             if (colorToEvaluate == Color.WHITE) {
                 currentPlayer = gameState.getPlayerWhite();

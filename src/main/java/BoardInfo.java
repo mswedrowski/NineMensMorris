@@ -442,9 +442,11 @@ public class BoardInfo {
         return Color.BLACK;
     }
 
-    public static boolean canRemove(GameState gameState, int requestedPositionInArray) {
+    public static boolean canRemove(GameState gameState, int requestedPositionInArray)
+    {
         PlayerState playerWhoIsRemoving = gameState.currentPlayer();
-        if (gameState.getPosition(requestedPositionInArray).getPositionColor() == BoardInfo.colorOfEnemy(playerWhoIsRemoving)) {
+        if (gameState.getPosition(requestedPositionInArray).getPositionColor() == BoardInfo.colorOfEnemy(playerWhoIsRemoving))
+        {
             if (getMills(gameState, requestedPositionInArray) == 0 ||
                     playerWhoIsRemoving.getPiecesOnBoard() == 3 && gameState.getPhase() == Phase.MOVE_PIECES) {
                 return true;

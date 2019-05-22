@@ -42,6 +42,11 @@ public class GameState implements Serializable
         turnOfPlayer =  getRandomPlayer();
     }
 
+    public int currentPlayerPieces()
+    {
+        return currentPlayer().getPiecesOnBoard();
+    }
+
     public void changePlayer()
     {
         if(turnOfPlayer == playerBlack)

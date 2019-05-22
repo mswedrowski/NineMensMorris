@@ -155,7 +155,6 @@ public class HumanIO
 
             while(!properPositionMoveFrom) {
                 try {
-                    System.out.println(gameState);
                     System.out.println("Move of " + player.toString());
                     System.out.println("Which piece would you like to move?");
                     Scanner input = new Scanner(System.in);
@@ -176,9 +175,14 @@ public class HumanIO
 
                         while (!properPositionMoveTo) {
                             try {
-                                System.out.println("Where do you want to move?");
+                                System.out.println("Where do you want to move? (Type -1 to change piece to move)");
                                 int requestedPositionToMoveInArray = -1;
                                 int requestedFieldToMove = input.nextInt();
+
+                                if(requestedFieldToMove == -1)
+                                {
+                                    break;
+                                }
 
                                 requestedPositionToMoveInArray = boardPositionToArrayPosition.get(requestedFieldToMove);
                                 Position positionToMove = nextMove.getAllPositions().get(requestedPositionToMoveInArray);
@@ -188,6 +192,7 @@ public class HumanIO
 
                                     if (BoardInfo.isPreviousPiecePositionValid(positionMoveFrom,positionToMove))
                                     {
+
                                         player.setPreviousPosition(positionMoveFrom);
 
                                         properPositionMoveTo = true;
@@ -195,6 +200,12 @@ public class HumanIO
                                         positionMoveFrom.setPositionColor(Color.NONE);
                                         positionToMove.setPositionColor(player.getColorOfPlayer());
                                         positionToMove.setPreviousPiecePosition(positionMoveFrom);
+
+                                        int numberOfMills = BoardInfo.getMills(nextMove,requestedPositionToMoveInArray);
+                                        for(int i=0;i<numberOfMills;i++)
+                                        {
+                                            removePieceIO(nextMove);
+                                        }
 
                                     }
                                 }
@@ -214,6 +225,7 @@ public class HumanIO
                 }
             }
         }
+        nextMove.changePlayer();
         return nextMove;
     }
 }

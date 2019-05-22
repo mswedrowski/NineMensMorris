@@ -110,8 +110,6 @@ public class AI
     {
         ArrayList<GameState> possibleMovesArray =new ArrayList<>();
 
-        PlayerState player = gameState.currentPlayer();
-
         if(gameState.getPhase() == Phase.END_OF_GAME)
         {
             possibleMovesArray.add(gameState);
@@ -159,6 +157,7 @@ public class AI
         if (possibleMovesArray.isEmpty())
         {
             gameState.setPhase(Phase.END_OF_GAME);
+            gameState.changePlayer();
             possibleMovesArray.add(gameState);
         }
         return possibleMovesArray;
@@ -184,12 +183,6 @@ public class AI
         return possibleMoves;
     }
 
-    public static ArrayList<GameState> placeNewPieceAI(GameState gamestate)
-    {
-        return addPiece(gamestate);
-    }
-
-
     public static int getPotentialMillCount(GameState gameState,Color colorToCheck)
     {
         int millCounter =0;
@@ -209,10 +202,6 @@ public class AI
     {
        return Heuristics.getEvaluation(heuristic,gameState,colorToEvaluate);
     }
-
-
-
-
 
 }
 

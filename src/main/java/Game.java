@@ -29,7 +29,7 @@ public class Game
     {
         PlayerState currentPlayer = gameState.currentPlayer();
 
-
+        currentPlayer.setNumberOfMoves(currentPlayer.getNumberOfMoves()+1);
 
         if(currentPlayer.getPlayerType() == PlayerType.HUMAN)
         {
@@ -57,6 +57,8 @@ public class Game
     {
         PlayerState currentPlayer = gameState.currentPlayer();
 
+        currentPlayer.setNumberOfMoves(currentPlayer.getNumberOfMoves()+1);
+
         if(currentPlayer.getPlayerType() == PlayerType.HUMAN)
         {
             HumanIO humanIO = new HumanIO();
@@ -64,6 +66,7 @@ public class Game
             try
             {
                 gameState = humanIO.movePieceIO(gameState,currentPlayer);
+
             }
             catch (Exception e)
             {
@@ -72,12 +75,9 @@ public class Game
         }
         else
         {
-
             gameState = AIgetMove(currentPlayer);
         }
 
-
-        gameState.changePlayer();
         return gameState;
     }
 
@@ -89,11 +89,11 @@ public class Game
         HeuristicType heuristicType = currentPlayer.getHeuristicType();
         if(currentPlayer.getAlgorithmType() == AlgorithmType.MINIMAX)
         {
-            result = Algorithms.miniMax(gameState,3,gameState.getPhase(),true,currentPlayer.getColorOfPlayer(),heuristicType);
+            result = Algorithms.miniMax(gameState,4,gameState.getPhase(),true,currentPlayer.getColorOfPlayer(),heuristicType);
         }
         else if(currentPlayer.getAlgorithmType() == AlgorithmType.ALPHABETA)
         {
-            result = Algorithms.alphaBeta(gameState,3,alpha,beta,gameState.getPhase(),true,currentPlayer.getColorOfPlayer(),heuristicType);
+            result = Algorithms.alphaBeta(gameState,4,alpha,beta,gameState.getPhase(),true,currentPlayer.getColorOfPlayer(),heuristicType);
         }
         return result.getBoard();
     }
@@ -124,6 +124,14 @@ public class Game
         {
             gameState.setPhase(Phase.END_OF_GAME);
             System.out.println(gameState);
+            System.out.println("Black");
+            System.out.println(gameState.getPlayerBlack().getEvalnumber());
+            System.out.println(gameState.getPlayerBlack().getTime());
+            System.out.println(gameState.getPlayerBlack().getNumberOfMoves());
+            System.out.println("White");
+            System.out.println(gameState.getPlayerWhite().getEvalnumber());
+            System.out.println(gameState.getPlayerWhite().getTime());
+            System.out.println(gameState.getPlayerWhite().getNumberOfMoves());
             System.out.println("Koniec");
 
         }
@@ -134,11 +142,22 @@ public class Game
     public static void main(String[] args)
     {
         Game game = new Game(PlayerType.AI,PlayerType.AI);
-        game.gameState.getPlayerWhite().setHeuristicType(HeuristicType.NeighboursCount);
+        //game.gameState.getPlayerWhite().setHeuristicType(HeuristicType.FieldScore);
+        //game.gameState.getPlayerBlack().setHeuristicType(HeuristicType.FieldScore);
+        //game.gameState.getPlayerWhite().setAlgorithmType(AlgorithmType.MINIMAX);
+
         while (game.gameState.getPhase() == Phase.PLACE_PIECES)
         {
             System.out.println(game.gameState);
+            int startTime = (int) System.currentTimeMillis();
+            int startNumberComp = Algorithms.compCount;
             game.gameState = game.preformNextMovePhasePlace(game.gameState);
+
+            int endNumberComp = Algorithms.compCount;
+            int endTime = (int) System.currentTimeMillis();
+            game.gameState.getEnemy().setTime( game.gameState.getEnemy().getTime() + endTime - startTime);
+            game.gameState.getEnemy().setEvalnumber(game.gameState.getEnemy().getEvalnumber() + endNumberComp - startNumberComp );
+
             System.out.println("TURN OF PLAYER: ");
             System.out.println(game.gameState.currentPlayer());
             game.updatePhasePlace(game.gameState);
@@ -147,7 +166,18 @@ public class Game
         while (game.gameState.getPhase() == Phase.MOVE_PIECES)
         {
             System.out.println(game.gameState);
+            int startTime = (int) System.currentTimeMillis();
+            int startNumberComp = Algorithms.compCount;
+
             game.gameState = game.preformNextMovePhaseMove(game.gameState);
+
+            int endNumberComp = Algorithms.compCount;
+            int endTime = (int) System.currentTimeMillis();
+            game.gameState.getEnemy().setTime( game.gameState.getEnemy().getTime() + endTime - startTime);
+            game.gameState.getEnemy().setEvalnumber( game.gameState.getEnemy().getEvalnumber() + endNumberComp - startNumberComp);
+
+            System.out.println("TURN OF PLAYER: ");
+            System.out.println(game.gameState.currentPlayer());
             game.updatePhaseMove(game.gameState);
         }
 
